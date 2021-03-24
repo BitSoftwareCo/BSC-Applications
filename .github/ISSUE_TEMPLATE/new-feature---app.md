@@ -1,7 +1,7 @@
 ---
 name: New Feature / App
 about: Propose a New Feature or App
-title: ''
+title: FEATURE - [Short Description]
 labels: enhancement, new app
 assignees: ''
 
