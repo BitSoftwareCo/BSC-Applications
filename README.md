@@ -2,8 +2,10 @@
 
 ### What is BSC Applications?
 
-To put it simply, BSC Applications is a multiuse app made for Windows 10 using [UWP](https://docs.microsoft.com/en-us/windows/uwp/get-started/universal-application-platform-guide). We wanted to show the world how good multiuse apps can be. Currently as of 1.0.0 BSC Applications comes with a Rich Text Editor(Text Edit), Todo and Photo View(Work in Progress).
+To put it simply, BSC Applications is a multiuse app made for Windows 10 using [UWP](https://docs.microsoft.com/en-us/windows/uwp/get-started/universal-application-platform-guide). We wanted to show the world how good multiuse apps can be. Currently as of 1.0.0 BSC Applications comes with a Rich Text Editor(Text Edit), Photo View, and Phone Book(Work in progress).
 
-### What version is right for me?
+### Is this Version For Me?
 
-No data yet!
+|Version|Stable|Supported|
+|-------|------|---------|
+|1.0.0  |Yes/No|Yes      |
