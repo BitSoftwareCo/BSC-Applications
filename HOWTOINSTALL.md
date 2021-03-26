@@ -1,6 +1,6 @@
 # How to Install BSC Applications
 
-**Before we start make sure you enabled your PC for sideloading(Learn how to [here](https://www.windowscentral.com/how-enable-windows-10-sideload-apps-outside-store)
+**Before we start make sure you enabled your PC for sideloading(Learn how to [here](https://www.windowscentral.com/how-enable-windows-10-sideload-apps-outside-store)).**
 
 1. Extract the BSC Applications.zip file.
 2. Open the BSC Applications folder.
