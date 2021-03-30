@@ -14,5 +14,5 @@ Simply download the code and add or fix what you want to. Then upload the file a
 
 |Version|Stable|Supported|Is Open Source|
 |-------|------|---------|--------------|
+|0.0.1  |Yes   |Yes      |Yes           |      
 |0.0.0  |Yes/No|Yes      |No            |
-|0.0.1  |Yes   |Yes      |Yes           |
