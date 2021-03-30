@@ -6,6 +6,6 @@ To put it simply, BSC Applications is a multiuse app made for Windows 10 using [
 
 ### Is this Version For Me?
 
-|Version|Stable|Supported|
-|-------|------|---------|
-|0.0.0  |Yes/No|Yes      |
+|Version|Stable|Supported|Is Open Source|
+|-------|------|---------|--------------|
+|0.0.0  |Yes/No|Yes      |No            |
