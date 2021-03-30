@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="BSC_Applications.Page.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BSC_Applications.Page"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel Orientation="Vertical" Spacing="10">
+        <TextBlock x:Name="Date" TextWrapping="WrapWholeWords" Style="{StaticResource TitleTextBlockStyle}">Placeholder</TextBlock>
+
+        <TextBlock FontWeight="Bold" Margin="0, 15, 0, 0">Things To Do</TextBlock>
+        <StackPanel Orientation="Vertical" Margin="25, 0, 0, 0">
+            <TextBlock>Edit a Document in Text Edit</TextBlock>
+            <TextBlock>Open a Image in Photo View</TextBlock>
+            <TextBlock>Copy a Image from Photo View to a Document</TextBlock>
+            <TextBlock>Change some Settings</TextBlock>
+        </StackPanel>
+    </StackPanel>
+</Page>

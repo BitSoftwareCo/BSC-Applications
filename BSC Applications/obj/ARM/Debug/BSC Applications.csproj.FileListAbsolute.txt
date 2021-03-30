@@ -1,0 +1,73 @@
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\App.xbf
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\Page\Applications\Phone_Book.xbf
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\Page\Applications\Photo_View.xbf
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\Page\Applications\Text_Edit.xbf
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\Page\Home.xbf
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\Page\MainPage.xbf
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\Page\Settings.xbf
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\BSC Applications.xr.xml
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\BSC Applications.exe
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\BSC Applications.pdb
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\resources.pri
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\AppxManifest.xml
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\Core\AppxManifest.xml
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\Core\BSC Applications.exe
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\BSC Applications.build.appxrecipe
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\System.Runtime.dll
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\Microsoft.Graphics.Canvas.dll
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\Microsoft.Graphics.Canvas.winmd
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\bin\ARM\Debug\Microsoft.UI.Xaml.Markup.winmd
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\BSC Applications.csprojAssemblyReference.cache
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\App.g.i.cs
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\App.g.cs
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Applications\Phone_Book.g.i.cs
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Applications\Phone_Book.g.cs
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Applications\Photo_View.g.i.cs
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Applications\Photo_View.g.cs
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Applications\Text_Edit.g.i.cs
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Applications\Text_Edit.g.cs
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Home.g.i.cs
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Home.g.cs
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\MainPage.g.i.cs
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\MainPage.g.cs
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Settings.g.i.cs
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Settings.g.cs
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\XamlTypeInfo.g.cs
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\App.xaml
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Applications\Phone_Book.xaml
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Applications\Photo_View.xaml
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Applications\Text_Edit.xaml
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Home.xaml
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\MainPage.xaml
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Settings.xaml
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\App.xbf
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Applications\Phone_Book.xbf
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Applications\Photo_View.xbf
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Applications\Text_Edit.xbf
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Home.xbf
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\MainPage.xbf
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\Page\Settings.xbf
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\XamlSaveStateFile.xml
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\BSC Applications.csproj.CoreCompileInputs.cache
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\BSC Applications.csproj.CopyComplete
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\BSC Applications.exe
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\BSC Applications.pdb
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\ResourceHandlingTask.state
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\priconfig.xml
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\priconfig.xml.intermediate
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\unfiltered.layout.resfiles
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\unfiltered.layout.resfiles.intermediate
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\filtered.layout.resfiles
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\filtered.layout.resfiles.intermediate
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\excluded.layout.resfiles
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\excluded.layout.resfiles.intermediate
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\resources.resfiles
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\resources.resfiles.intermediate
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\pri.resfiles
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\pri.resfiles.intermediate
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\qualifiers.txt
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\qualifiers.txt.intermediate
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\ProjectArchitectures.txt
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_637214678760000000.json
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\ARM\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636885490160000000.json
