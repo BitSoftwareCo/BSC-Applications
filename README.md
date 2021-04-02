@@ -12,9 +12,9 @@ Simply download the code and add or fix what you want to. Then upload the file a
 
 ### Is this Version For Me?
 
-Not okay with dealing with bugs - Full releases(e.g 1.0.0)
-Okay with bugs but not temporary features - Beta releases(e.g 0.1.0)
-Okay with bugs and temporary features - Build releases(e.g 0.0.1)
+- Not okay with dealing with bugs - Full releases(e.g 1.0.0)
+- Okay with bugs but not temporary features - Beta releases(e.g 0.1.0)
+- Okay with bugs and temporary features - Build releases(e.g 0.0.1)
 
 |Version|Type |Supported|Is Open Source|
 |-------|-----|---------|--------------|
