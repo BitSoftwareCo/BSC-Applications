@@ -7,7 +7,7 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="3406ec64-fd29-4985-8b83-ff38194de670" Publisher="CN=BSC" Version="0.0.1.0" ProcessorArchitecture="x64" />
+  <Identity Name="3406ec64-fd29-4985-8b83-ff38194de670" Publisher="CN=BSC" Version="0.0.2.0" ProcessorArchitecture="x64" />
   <mp:PhoneIdentity PhoneProductId="3406ec64-fd29-4985-8b83-ff38194de670" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>BSC Applications</DisplayName>

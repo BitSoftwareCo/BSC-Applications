@@ -6,6 +6,7 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.ResourceDictionary" />
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Width" />
       <RootProperty Name="Content" />
       <RootEvent Name="Click" />
     </RootType>
@@ -54,17 +55,19 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="BSC_Applications.Page.Applications.Phone_Book" />
-    <RootType FullName="Windows.UI.Xaml.Controls.Image" />
-    <RootType FullName="BSC_Applications.Page.Applications.Photo_View" />
-    <RootType FullName="Windows.UI.Xaml.Controls.RichEditBox" />
-    <RootType FullName="BSC_Applications.Page.Applications.File_View" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="Style" />
       <RootProperty Name="Inlines" />
       <RootProperty Name="FontWeight" />
       <RootProperty Name="Margin" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Image" />
+    <RootType FullName="BSC_Applications.Page.Applications.Photo_View" />
+    <RootType FullName="Windows.UI.Xaml.Controls.RichEditBox" />
+    <RootType FullName="BSC_Applications.Page.Applications.File_View" />
     <RootType FullName="BSC_Applications.Page.Home" />
     <RootType FullName="Windows.UI.Xaml.Controls.NavigationView">
       <RootProperty Name="IsBackButtonVisible" />
@@ -82,7 +85,16 @@
       <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="BSC_Applications.MainPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
+      <RootProperty Name="Items" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.PivotItem">
+      <RootProperty Name="Header" />
+      <RootProperty Name="Content" />
+      <RootEvent Name="Loaded" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
+      <RootProperty Name="Margin" />
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ToggleSwitch">

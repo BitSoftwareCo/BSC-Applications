@@ -15,13 +15,14 @@
         </Grid.RowDefinitions>
 
         <CommandBar Background="Transparent" Grid.Row="0">
-            <AppBarButton x:ConnectionId='4' x:Name="Open" Icon="OpenFile" Label="Open"                    />
-            <AppBarButton x:ConnectionId='5' x:Name="Copy" Icon="Paste" Label="Copy"                         />
-            <AppBarButton x:ConnectionId='6' x:Name="Help" Icon="Help" Label="Help"                    />
+            <AppBarButton x:ConnectionId='5' x:Name="Open" Icon="OpenFile" Label="Open"                    />
+            <AppBarButton x:ConnectionId='6' x:Name="Copy" Icon="Paste" Label="Copy"                         />
+            <AppBarButton x:ConnectionId='7' x:Name="Help" Icon="Help" Label="Help"                    />
         </CommandBar>
 
         <Grid Grid.Row="1">
-            <Image x:ConnectionId='3' x:Name="View" />
+            <TextBlock x:ConnectionId='3' x:Name="Message" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Image x:ConnectionId='4' x:Name="View" />
         </Grid>
     </Grid>
 </Page>

@@ -70,3 +70,77 @@ C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Multi
 C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\ProjectArchitectures.txt
 C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_637214678760000000.json
 C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636885490160000000.json
+C:\Users\jghr\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\BSC Applications.csprojAssemblyReference.cache
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\App.xbf
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\Page\Applications\Phone_Book.xbf
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\Page\Applications\Photo_View.xbf
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\Page\Applications\Text_Edit.xbf
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\Page\Home.xbf
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\Page\MainPage.xbf
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\Page\Settings.xbf
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\BSC Applications.xr.xml
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\BSC Applications.exe
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\BSC Applications.pdb
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\resources.pri
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\AppxManifest.xml
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\Core\AppxManifest.xml
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\Core\BSC Applications.exe
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\BSC Applications.build.appxrecipe
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\System.Runtime.dll
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\Microsoft.Graphics.Canvas.dll
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\Microsoft.Graphics.Canvas.winmd
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\bin\x64\Debug\Microsoft.UI.Xaml.Markup.winmd
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\BSC Applications.csprojAssemblyReference.cache
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\App.g.i.cs
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\App.g.cs
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Applications\Phone_Book.g.i.cs
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Applications\Phone_Book.g.cs
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Applications\Photo_View.g.i.cs
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Applications\Photo_View.g.cs
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Applications\Text_Edit.g.i.cs
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Applications\Text_Edit.g.cs
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Home.g.i.cs
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Home.g.cs
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\MainPage.g.i.cs
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\MainPage.g.cs
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Settings.g.i.cs
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Settings.g.cs
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\XamlTypeInfo.g.cs
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\App.xaml
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Applications\Phone_Book.xaml
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Applications\Photo_View.xaml
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Applications\Text_Edit.xaml
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Home.xaml
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\MainPage.xaml
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Settings.xaml
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\App.xbf
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Applications\Phone_Book.xbf
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Applications\Photo_View.xbf
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Applications\Text_Edit.xbf
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Home.xbf
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\MainPage.xbf
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\Page\Settings.xbf
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\XamlSaveStateFile.xml
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\BSC Applications.csproj.CoreCompileInputs.cache
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\BSC Applications.csproj.CopyComplete
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\BSC Applications.exe
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\BSC Applications.pdb
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\ResourceHandlingTask.state
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\priconfig.xml
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\priconfig.xml.intermediate
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\unfiltered.layout.resfiles
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\unfiltered.layout.resfiles.intermediate
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\filtered.layout.resfiles
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\filtered.layout.resfiles.intermediate
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\excluded.layout.resfiles
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\excluded.layout.resfiles.intermediate
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\resources.resfiles
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\resources.resfiles.intermediate
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\pri.resfiles
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\pri.resfiles.intermediate
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\qualifiers.txt
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\qualifiers.txt.intermediate
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\ProjectArchitectures.txt
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_637214678760000000.json
+C:\Users\Jared\OneDrive\Bit\BSC-Applications\BSC Applications\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636885490160000000.json

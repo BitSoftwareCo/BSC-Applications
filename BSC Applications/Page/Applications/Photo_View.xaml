@@ -21,6 +21,7 @@
         </CommandBar>
 
         <Grid Grid.Row="1">
+            <TextBlock x:Name="Message" HorizontalAlignment="Center" VerticalAlignment="Center" />
             <Image x:Name="View" />
         </Grid>
     </Grid>

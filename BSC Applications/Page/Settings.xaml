@@ -8,26 +8,47 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <ScrollViewer>
-        <StackPanel Orientation="Vertical" Spacing="10">
-            <TextBlock Style="{StaticResource TitleTextBlockStyle}">Sound</TextBlock>
-            <TextBlock>Toggle Audio Effects</TextBlock>
+    <Pivot>
 
-            <ToggleSwitch x:Name="SoundToggle" Header="Sound" Toggled="Sound_Toggled" />
+        <PivotItem x:Name="General" Header="General" Loaded="General_Loaded">
+            <ScrollViewer Margin="0 15 0 0">
+                <StackPanel Orientation="Vertical" Spacing="10">
+                    <TextBlock Style="{StaticResource TitleTextBlockStyle}">Sound</TextBlock>
+                    <TextBlock>Toggle Audio Effects</TextBlock>
 
-            <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 50 0 0">Feedback</TextBlock>
+                    <ToggleSwitch x:Name="SoundToggle" Header="Sound" Toggled="Sound_Toggled" />
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
 
-            <Button x:Name="About" Click="About_Click">About</Button>
-            <StackPanel Orientation="Vertical">
-                <HyperlinkButton NavigateUri="mailto:JaredGHolderRallo@gmail.com">Email US</HyperlinkButton>
-                <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications/issues/new?assignees=&amp;labels=bug&amp;template=bug-report.md&amp;title=BUG+-+%5BShort+Description%5D">Issue on Github</HyperlinkButton>
-            </StackPanel>
+        <PivotItem x:Name="Feedback" Header="Feeback">
+            <ScrollViewer Margin="0 15 0 0">
+                <StackPanel Orientation="Vertical" Spacing="10">
+                    <TextBlock Style="{StaticResource TitleTextBlockStyle}">Feedback</TextBlock>
+                    <TextBlock>Report Bugs</TextBlock>
 
-            <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 50 0 0">Links</TextBlock>
-            <StackPanel Orientation="Vertical">
-                <HyperlinkButton x:Name="website">Placeholder</HyperlinkButton>
-                <HyperlinkButton x:Name="docs">Placeholder</HyperlinkButton>
-            </StackPanel>
-        </StackPanel>
-    </ScrollViewer>
+                    <Button x:Name="About" Click="About_Click" Width="122">About</Button>
+                    <Button x:Name="GenerateReport" Click="GenerateReport_Click">Generate Report</Button>
+                    <StackPanel Orientation="Vertical">
+                        <HyperlinkButton NavigateUri="mailto:JaredGHolderRallo@gmail.com">Email US</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications/issues/new?assignees=&amp;labels=bug&amp;template=bug-report.md&amp;title=BUG+-+%5BShort+Description%5D">Issue on Github</HyperlinkButton>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+
+        <PivotItem x:Name="Resources" Header="Resources">
+            <ScrollViewer Margin="0 15 0 0">
+                <StackPanel Orientation="Vertical" Spacing="10">
+                    <TextBlock Style="{StaticResource TitleTextBlockStyle}">Resources</TextBlock>
+
+                    <StackPanel Orientation="Vertical">
+                        <HyperlinkButton x:Name="website">Placeholder</HyperlinkButton>
+                        <HyperlinkButton x:Name="docs">Placeholder</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications">View Code</HyperlinkButton>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+    </Pivot>
 </Page>

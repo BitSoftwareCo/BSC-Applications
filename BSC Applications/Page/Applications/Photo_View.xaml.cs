@@ -33,6 +33,8 @@ namespace BSC_Applications.Page.Applications
         public Photo_View()
         {
             this.InitializeComponent();
+
+            Message.Text = "Click \"Open\" to Open a Photo.";
         }
 
         private async void Open_Click(object sender, RoutedEventArgs e)
@@ -49,6 +51,7 @@ namespace BSC_Applications.Page.Applications
             path = await openPicker.PickSingleFileAsync();
             if (path != null)
             {
+                Message.Text = "";
                 using (IRandomAccessStream fileStream = await path.OpenAsync(FileAccessMode.Read))
                 {
                     BitmapImage bitmapImage = new BitmapImage();
