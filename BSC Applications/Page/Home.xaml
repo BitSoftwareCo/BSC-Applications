@@ -5,18 +5,23 @@
     xmlns:local="using:BSC_Applications.Page"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
     <StackPanel Orientation="Vertical" Spacing="10">
-        <TextBlock x:Name="Date" TextWrapping="WrapWholeWords" Style="{StaticResource TitleTextBlockStyle}">Placeholder</TextBlock>
+        <StackPanel Orientation="Horizontal" Spacing="15">
+            <PersonPicture x:Name="Pfp" />
+            <StackPanel Orientation="Vertical" Height="58">
+                <TextBlock FontWeight="Bold">WELCOME</TextBlock>
+                <TextBlock x:Name="Name" Style="{StaticResource TitleTextBlockStyle}">Placeholder</TextBlock>
+            </StackPanel>
+        </StackPanel>
 
-        <TextBlock FontWeight="Bold" Margin="0, 15, 0, 0">Things To Do</TextBlock>
-        <StackPanel Orientation="Vertical" Margin="25, 0, 0, 0">
+        <TextBlock FontWeight="Bold" Margin="0 25 0 0">THINGS TO DO</TextBlock>
+        <StackPanel Orientation="Vertical" Margin="20 0 0 0">
             <TextBlock>Edit a Document in Text Edit</TextBlock>
             <TextBlock>Open a Image in Photo View</TextBlock>
             <TextBlock>Copy a Image from Photo View to a Document</TextBlock>
-            <TextBlock>Change some Settings</TextBlock>
+            <TextBlock>Add Numbers to a Phone Book</TextBlock>
         </StackPanel>
     </StackPanel>
 </Page>

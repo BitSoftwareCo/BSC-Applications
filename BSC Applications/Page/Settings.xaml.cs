@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Principal;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -31,9 +32,6 @@ namespace BSC_Applications.Page
 
             website.Content = $"{lib.Data.Publisher}'s Website";
             website.NavigateUri = new Uri(lib.Data.Website);
-
-            docs.Content = "Docs";
-            docs.NavigateUri = new Uri(lib.Data.Docs);
         }
 
         private void General_Loaded(object sender, RoutedEventArgs e)
@@ -42,6 +40,8 @@ namespace BSC_Applications.Page
                 SoundToggle.IsOn = true;
             else
                 SoundToggle.IsOn = false;
+
+            Name.Text = roamingSettings.Values["displayName"] as string;
         }
 
         // General
@@ -94,6 +94,10 @@ namespace BSC_Applications.Page
                 await FileIO.WriteTextAsync(file, text);
                 await CachedFileManager.CompleteUpdatesAsync(file);
             }
+        }
+        private void SaveName_Click(object sender, RoutedEventArgs e)
+        {
+            roamingSettings.Values["displayName"] = Name.Text;
         }
     }
 }

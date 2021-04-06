@@ -6,6 +6,15 @@
 
     <Application.Resources>
         <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Dark">
+                    <Color x:Key="SystemAccentColor">#448ECD</Color>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Light">
+                    <Color x:Key="SystemAccentColor">#155B98</Color>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+
             <Style TargetType="Button" BasedOn="{StaticResource ButtonRevealStyle}" />
             <Style TargetType="HyperlinkButton" BasedOn="{StaticResource TextBlockButtonStyle}" />
         </ResourceDictionary>

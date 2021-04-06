@@ -30,13 +30,12 @@ namespace BSC_Applications
         {
             new Page.lib.Setup();
 
-            this.RequestedTheme = ElementTheme.Default;
-            this.InitializeComponent();
-
             if (Boolean.Parse(roamingSettings.Values["sound"].ToString()))
                 ElementSoundPlayer.State = ElementSoundPlayerState.On;
             else
                 ElementSoundPlayer.State = ElementSoundPlayerState.Off;
+
+            this.InitializeComponent();
 
             Content.Navigate(typeof(Page.Home));
         }
@@ -50,14 +49,14 @@ namespace BSC_Applications
 
             // ---
 
+            else if (args.InvokedItem.ToString() == "Notes")
+                Content.Navigate(typeof(Page.Applications.File_View));
+
             else if (args.InvokedItem.ToString() == "Phone Book")
                 Content.Navigate(typeof(Page.Applications.Phone_Book));
 
             else if (args.InvokedItem.ToString() == "Photo View")
                 Content.Navigate(typeof(Page.Applications.Photo_View));
-
-            else if (args.InvokedItem.ToString() == "Text Edit")
-                Content.Navigate(typeof(Page.Applications.File_View));
 
             else if (args.IsSettingsInvoked)
             {

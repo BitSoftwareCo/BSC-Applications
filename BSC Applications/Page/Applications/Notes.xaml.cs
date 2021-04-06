@@ -34,7 +34,7 @@ namespace BSC_Applications.Page.Applications
         {
             ContentDialog dialog = new ContentDialog
             { 
-                Title = "Are you sure you want to create a new document?",
+                Title = "Are you sure you want to create a new Note?",
                 Content = "Clicking \"Yes\" will delete any unsaved text. Do you wish to continue?",
                 PrimaryButtonText = "Yes",
                 SecondaryButtonText = "No",
@@ -50,17 +50,23 @@ namespace BSC_Applications.Page.Applications
         {
             FileSavePicker savePicker = new FileSavePicker();
             savePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-            savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
-            savePicker.SuggestedFileName = "Untitled Document";
+            savePicker.FileTypeChoices.Add("BSC Note File", new List<string>() { ".note" });
+            savePicker.FileTypeChoices.Add("Rich Text File", new List<string>() { ".rtf" });
+            savePicker.SuggestedFileName = "Untitled Note";
             
             StorageFile file = await savePicker.PickSaveFileAsync();
             if (file != null)
             {
+                Text.Foreground = new SolidColorBrush(Colors.Black);
+
                 CachedFileManager.DeferUpdates(file);
                 Windows.Storage.Streams.IRandomAccessStream randAccStream = await file.OpenAsync(FileAccessMode.ReadWrite);
                 Text.Document.SaveToStream((TextGetOptions)TextGetOptions.FormatRtf, randAccStream);
                 
                 await CachedFileManager.CompleteUpdatesAsync(file);
+
+                if (Application.Current.RequestedTheme == ApplicationTheme.Dark)
+                    Text.Foreground = new SolidColorBrush(Colors.White);
             }
         }
 
@@ -68,6 +74,7 @@ namespace BSC_Applications.Page.Applications
         {
             FileOpenPicker open = new FileOpenPicker();
             open.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+            open.FileTypeFilter.Add(".note");
             open.FileTypeFilter.Add(".rtf");
 
             StorageFile file = await open.PickSingleFileAsync();

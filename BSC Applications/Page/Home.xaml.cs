@@ -7,6 +7,7 @@ using System.Security.Principal;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -25,13 +26,14 @@ namespace BSC_Applications.Page
     /// </summary>
     public sealed partial class Home
     {
+        ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;
+
         public Home()
         {
             this.InitializeComponent();
 
-            string[] date = DateTime.Today.ToString().Split(" ");
-            string[] name = WindowsIdentity.GetCurrent().Name.Split("\\");
-            Date.Text = $"Hello {name[1]}! The Date is {date[0]}.";
+            Pfp.DisplayName = roamingSettings.Values["displayName"] as string;
+            Name.Text = roamingSettings.Values["displayName"] as string;
         }
     }
 }

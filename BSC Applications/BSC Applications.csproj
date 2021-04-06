@@ -136,13 +136,12 @@
     <Compile Include="Page\Applications\Photo_View.xaml.cs">
       <DependentUpon>Photo_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page\Applications\Text_Edit.xaml.cs">
-      <DependentUpon>Text_Edit.xaml</DependentUpon>
+    <Compile Include="Page\Applications\Notes.xaml.cs">
+      <DependentUpon>Notes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Page\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page\lib\Assets.cs" />
     <Compile Include="Page\lib\Data.cs" />
     <Compile Include="Page\lib\Setup.cs" />
     <Compile Include="Page\MainPage.xaml.cs">
@@ -159,7 +158,6 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LICENSE.txt" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -182,7 +180,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Page\Applications\Text_Edit.xaml">
+    <Page Include="Page\Applications\Notes.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

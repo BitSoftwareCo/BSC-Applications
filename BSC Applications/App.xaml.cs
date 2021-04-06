@@ -74,9 +74,6 @@ namespace BSC_Applications
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
-
-            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
-            coreTitleBar.ExtendViewIntoTitleBar = false;
         }
 
         /// <summary>

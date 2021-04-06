@@ -36,8 +36,9 @@ namespace BSC_Applications.Page.Applications
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            if (Name.Text != null && Number.Text != null)
+            if (Name.Text != "" && Number.Text != "")
             {
+                Message.Text = "";
                 string item = $"{Name.Text} - {Number.Text}";
                 List.Items.Add(item);
             }
@@ -75,6 +76,8 @@ namespace BSC_Applications.Page.Applications
             StorageFile file = await open.PickSingleFileAsync();
             if (file != null)
             {
+                Message.Text = "";
+
                 string text = await FileIO.ReadTextAsync(file);
                 string[] numbers = text.Split("&");
                 for(int i = 0; i < numbers.Length; i++)

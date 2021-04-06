@@ -5,8 +5,7 @@
     xmlns:local="using:BSC_Applications.Page"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
     <Pivot>
 
@@ -17,11 +16,19 @@
                     <TextBlock>Toggle Audio Effects</TextBlock>
 
                     <ToggleSwitch x:Name="SoundToggle" Header="Sound" Toggled="Sound_Toggled" />
+
+                    <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 50 0 0">Display Name</TextBlock>
+                    <TextBlock>Edit your Display Name</TextBlock>
+
+                    <StackPanel Orientation="Horizontal" Spacing="15">
+                        <TextBox x:Name="Name" Width="178" HorizontalAlignment="Left" />
+                        <Button x:Name="SaveName" Click="SaveName_Click">Set Display Name</Button>
+                    </StackPanel>
                 </StackPanel>
             </ScrollViewer>
         </PivotItem>
 
-        <PivotItem x:Name="Feedback" Header="Feeback">
+        <PivotItem x:Name="Feedback" Header="Feedback">
             <ScrollViewer Margin="0 15 0 0">
                 <StackPanel Orientation="Vertical" Spacing="10">
                     <TextBlock Style="{StaticResource TitleTextBlockStyle}">Feedback</TextBlock>
@@ -44,11 +51,17 @@
 
                     <StackPanel Orientation="Vertical">
                         <HyperlinkButton x:Name="website">Placeholder</HyperlinkButton>
-                        <HyperlinkButton x:Name="docs">Placeholder</HyperlinkButton>
                         <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications">View Code</HyperlinkButton>
                     </StackPanel>
                 </StackPanel>
             </ScrollViewer>
         </PivotItem>
+
+        <PivotItem x:Name="Docs" Header="Docs">
+            <Grid Margin="0 15 0 0">
+                <WebView Source="https://bitsoftwareco.github.io/docs/BSC-Applications.html" />
+            </Grid>
+        </PivotItem>
+
     </Pivot>
 </Page>
