@@ -16,8 +16,9 @@ Simply download the code and add or fix what you want to. Then upload the file a
 - Okay with bugs but not temporary features - Beta releases(e.g 0.1.0)
 - Okay with bugs and temporary features - Build releases(e.g 0.0.1)
 
-|Version|Type |Supported|Is Open Source|
-|-------|-----|---------|--------------|
-|0.0.2  |Build|Yes      |Yes           |
-|0.0.1  |Build|Yes      |Yes           |      
-|0.0.0  |Build|Yes      |No            |
+|Version|Type |Supported|
+|-------|-----|---------|
+|0.1.0  |Beta |Yes      |
+|0.0.2  |Build|Yes      |
+|0.0.1  |Build|Yes      |
+|0.0.0  |Build|No       |
