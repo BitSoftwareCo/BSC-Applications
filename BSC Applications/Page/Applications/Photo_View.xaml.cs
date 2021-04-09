@@ -70,11 +70,5 @@ namespace BSC_Applications.Page.Applications
                 Clipboard.SetContent(imagePackage);
             }
         }
-
-        private async void Help_Click(object sender, RoutedEventArgs e)
-        {
-            Uri uri = new Uri("https://bitsoftwareco.github.io/docs/BSC-Applications.html#photo-view");
-            await Launcher.LaunchUriAsync(uri);
-        }
     }
 }

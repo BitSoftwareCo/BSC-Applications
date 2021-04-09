@@ -16,7 +16,6 @@
         <CommandBar Background="Transparent" Grid.Row="0">
             <AppBarButton x:Name="Open" Icon="OpenFile" Label="Open" Click="Open_Click" />
             <AppBarButton x:Name="Copy" Icon="Paste" Label="Copy" Click="CopyImage_Click" />
-            <AppBarButton x:Name="Help" Icon="Help" Label="Help" Click="Help_Click" />
         </CommandBar>
 
         <Grid Grid.Row="1">

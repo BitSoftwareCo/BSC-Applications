@@ -139,10 +139,14 @@
     <Compile Include="Page\Applications\Notes.xaml.cs">
       <DependentUpon>Notes.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Page\Applications\Todo.xaml.cs">
+      <DependentUpon>Todo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Page\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
     <Compile Include="Page\lib\Data.cs" />
+    <Compile Include="Page\lib\Web.cs" />
     <Compile Include="Page\lib\Setup.cs" />
     <Compile Include="Page\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -184,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Page\Applications\Todo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Page\Home.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -200,6 +208,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.Text.Json">
+      <Version>5.0.2</Version>
     </PackageReference>
     <PackageReference Include="Win2D.uwp">
       <Version>1.25.0</Version>

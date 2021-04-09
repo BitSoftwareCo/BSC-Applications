@@ -7,6 +7,7 @@ using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -26,6 +27,9 @@ namespace BSC_Applications
     {
         ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;
 
+        public static Frame frame;
+        public static NavigationView nav;
+
         public MainPage()
         {
             new Page.lib.Setup();
@@ -37,7 +41,11 @@ namespace BSC_Applications
 
             this.InitializeComponent();
 
+            frame = Content;
+            nav = Nav;
+
             Content.Navigate(typeof(Page.Home));
+            MainPage.nav.SelectedItem = MainPage.nav.MenuItems[1];
         }
 
         private void Nav_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
@@ -57,6 +65,9 @@ namespace BSC_Applications
 
             else if (args.InvokedItem.ToString() == "Photo View")
                 Content.Navigate(typeof(Page.Applications.Photo_View));
+
+            else if (args.InvokedItem.ToString() == "Todo")
+                Content.Navigate(typeof(Page.Applications.Todo));
 
             else if (args.IsSettingsInvoked)
             {

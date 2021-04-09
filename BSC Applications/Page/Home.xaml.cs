@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -34,6 +35,39 @@ namespace BSC_Applications.Page
 
             Pfp.DisplayName = roamingSettings.Values["displayName"] as string;
             Name.Text = roamingSettings.Values["displayName"] as string;
+        }
+
+        private void AppButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            string buttonName = button.Name.Replace("_", " ");
+
+            MainPage.nav.Header = buttonName;
+
+            switch (buttonName)
+            {
+                case "Notes": 
+                    MainPage.frame.Navigate(typeof(Page.Applications.File_View), null, new DrillInNavigationTransitionInfo());
+                    MainPage.nav.SelectedItem = MainPage.nav.MenuItems[2];
+                    break;
+                case "Phone Book":
+                    MainPage.frame.Navigate(typeof(Page.Applications.Phone_Book), null, new DrillInNavigationTransitionInfo());
+                    MainPage.nav.SelectedItem = MainPage.nav.MenuItems[3];
+                    break;
+                case "Photo View":
+                    MainPage.frame.Navigate(typeof(Page.Applications.Photo_View), null, new DrillInNavigationTransitionInfo());
+                    MainPage.nav.SelectedItem = MainPage.nav.MenuItems[4];
+                    break;
+
+                case "Todo":
+                    MainPage.frame.Navigate(typeof(Page.Applications.Todo), null, new DrillInNavigationTransitionInfo());
+                    MainPage.nav.SelectedItem = MainPage.nav.MenuItems[5];
+                    break;
+                case "Settings":
+                    MainPage.frame.Navigate(typeof(Page.Settings), null, new DrillInNavigationTransitionInfo());
+                    MainPage.nav.SelectedItem = MainPage.nav.SettingsItem;
+                    break;
+            }
         }
     }
 }

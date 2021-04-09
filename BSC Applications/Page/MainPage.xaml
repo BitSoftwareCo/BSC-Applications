@@ -9,19 +9,23 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock Text="BSC Applications" x:Name="AppTitleBar"
-                   Grid.Column="1" 
+        <muxc:Grid.RowDefinitions>
+            <muxc:RowDefinition Height="0*"/>
+            <muxc:RowDefinition/>
+        </muxc:Grid.RowDefinitions>
+        <TextBlock Text="BSC Applications" x:Name="AppTitleBar" 
                    Style="{StaticResource CaptionTextBlockStyle}" 
-                   Margin="44 8 0 0"/>
+                   Margin="44 8 0 0" muxc:Grid.RowSpan="2"/>
 
         <NavigationView x:Name="Nav" ItemInvoked="Nav_ItemInvoked" IsBackButtonVisible="Collapsed"
-                             Header="Home" Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+                             Header="Home" Background="{ThemeResource SystemControlAcrylicWindowBrush}" muxc:Grid.RowSpan="2">
             <NavigationView.MenuItems>
-                <NavigationViewItem Icon="Home" Content="Home" IsSelected="True" />
+                <NavigationViewItem Icon="Home" Content="Home" />
                 <NavigationViewItemSeparator />
                 <NavigationViewItem Icon="Edit" Content="Notes" />
                 <NavigationViewItem Icon="PhoneBook" Content="Phone Book" />
                 <NavigationViewItem Icon="BrowsePhotos" Content="Photo View" />
+                <NavigationViewItem Icon="Accept" Content="Todo" />
             </NavigationView.MenuItems>
 
             <Frame x:Name="Content" Margin="12 0 12 24" Background="{ThemeResource SystemControlAcrylicWindowBrush}" />

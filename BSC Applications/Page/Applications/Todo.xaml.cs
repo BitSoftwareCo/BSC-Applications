@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Xml;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.Media.Core;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.System;
@@ -17,7 +14,6 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -27,19 +23,21 @@ namespace BSC_Applications.Page.Applications
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Phone_Book
+    public sealed partial class Todo
     {
-        public Phone_Book()
+        public Todo()
         {
             this.InitializeComponent();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            if (Name.Text != "" && Number.Text != "")
+            if (Task.Text != "")
             {
                 Message.Text = "";
-                string item = $"{Name.Text} - {Number.Text}";
+                CheckBox item = new CheckBox();
+                item.Content = Task.Text;
+
                 List.Items.Add(item);
             }
         }
@@ -48,8 +46,8 @@ namespace BSC_Applications.Page.Applications
         {
             FileSavePicker savePicker = new FileSavePicker();
             savePicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-            savePicker.FileTypeChoices.Add("BA Phone Book", new List<string>() { ".bpb" });
-            savePicker.SuggestedFileName = "Untitled Phone Book";
+            savePicker.FileTypeChoices.Add("BSC Todo File", new List<string>() { ".todo" });
+            savePicker.SuggestedFileName = "Untitled Todo List";
 
             StorageFile file = await savePicker.PickSaveFileAsync();
             if (file != null)
@@ -57,7 +55,9 @@ namespace BSC_Applications.Page.Applications
                 string text = "";
                 for (int i = 0; i < List.Items.Count; i++)
                 {
-                    text += $"{List.Items[i]}&";
+                    CheckBox item = (CheckBox)List.Items[i];
+                    if ((bool)!item.IsChecked)
+                        text += $"{item.Content}&";
                 }
                 text += "␀";
 
@@ -71,7 +71,7 @@ namespace BSC_Applications.Page.Applications
         {
             FileOpenPicker open = new FileOpenPicker();
             open.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-            open.FileTypeFilter.Add(".bpb");
+            open.FileTypeFilter.Add(".todo");
 
             StorageFile file = await open.PickSingleFileAsync();
             if (file != null)
@@ -79,17 +79,17 @@ namespace BSC_Applications.Page.Applications
                 Message.Text = "";
 
                 string text = await FileIO.ReadTextAsync(file);
-                string[] numbers = text.Split("&");
-                for(int i = 0; i < numbers.Length; i++)
+                string[] items = text.Split("&");
+                for (int i = 0; i < items.Length; i++)
                 {
-                    if (!numbers[i].Contains("␀"))
+                    if (!items[i].Contains("␀"))
                     {
-                        string item = numbers[i];
+                        CheckBox item = new CheckBox();
+                        item.Content = items[i];
                         List.Items.Add(item);
                     }
                 }
             }
         }
     }
-
 }

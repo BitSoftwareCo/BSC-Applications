@@ -24,6 +24,24 @@
                         <TextBox x:Name="Name" Width="178" HorizontalAlignment="Left" />
                         <Button x:Name="SaveName" Click="SaveName_Click">Set Display Name</Button>
                     </StackPanel>
+
+                    <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 50 0 0">Updates</TextBlock>
+                    <TextBlock>Check and Install Updates</TextBlock>
+
+                    <Button x:Name="CheckForUpdates" Click="CheckForUpdates_Click">Check For Updates</Button>
+                    
+                    <TextBlock x:Name="Status">BSC Applications is up-to-date!</TextBlock>
+
+                    <Button x:Name="Update" Background="Transparent" Height="92" Width="221" Click="Update_Click">
+                        <StackPanel Orientation="Horizontal" Spacing="15">
+                            <SymbolIcon Symbol="Download" Margin="0 0 0 30" />
+                            <StackPanel>
+                                <TextBlock Style="{StaticResource TitleTextBlockStyle}" x:Name="Version">Placeholder</TextBlock>
+                                <TextBlock x:Name="Publisher">Placeholder</TextBlock>
+                                <TextBlock Style="{StaticResource CaptionTextBlockStyle}" FontStyle="Italic">Click here to Download</TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
             </ScrollViewer>
         </PivotItem>
@@ -51,6 +69,7 @@
 
                     <StackPanel Orientation="Vertical">
                         <HyperlinkButton x:Name="website">Placeholder</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://bitsoftwareco.github.io/docs/BSC-Applications.html#update">Update</HyperlinkButton>
                         <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications">View Code</HyperlinkButton>
                     </StackPanel>
                 </StackPanel>
@@ -59,7 +78,11 @@
 
         <PivotItem x:Name="Docs" Header="Docs">
             <Grid Margin="0 15 0 0">
-                <WebView Source="https://bitsoftwareco.github.io/docs/BSC-Applications.html" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="121*"/>
+                </Grid.ColumnDefinitions>
+                <WebView Source="https://bitsoftwareco.github.io/docs/BSC-Applications.html" Grid.ColumnSpan="2" />
             </Grid>
         </PivotItem>
 
