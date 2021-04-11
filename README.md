@@ -1,5 +1,9 @@
 # BSC Applications
 
+### PLEASE NOTE!!!
+
+Version 0.1.2 will **NOT** be open source. We want to eather charge or add a preamium and inorder to do this BSC Applications can't be open source. We will still make open source products and we have some underway.
+
 ### What is BSC Applications?
 
 To put it simply, BSC Applications is a multiuse app made for Windows 10 using [UWP](https://docs.microsoft.com/en-us/windows/uwp/get-started/universal-application-platform-guide). We wanted to show the world how good multiuse apps can be. Currently as of 0.0.0 BSC Applications comes with a Rich Text Editor(Text Edit), Photo View, and Phone Book(Work in progress).
