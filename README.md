@@ -13,5 +13,5 @@ Doing More in Less.
 |0.1.1  |Build|Yes      |
 |0.1.0  |Beta |Yes      |
 |0.0.2  |Build|Yes      |
-|0.0.1  |Build|Yes      |
+|0.0.1  |Build|No       |
 |0.0.0  |Build|No       |
