@@ -7,14 +7,10 @@ assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**What will it be called?**
+E.G. Ink or Todo
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+**How will it work?**
+E.G. Open files and save them as rich text.
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**If related to an issue, describe the issue**
