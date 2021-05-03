@@ -1,0 +1,97 @@
+﻿<Page
+    x:Class="BSC_Applications.Core.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BSC_Applications.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Pivot>
+
+        <PivotItem x:Name="General" Header="General" Loaded="General_Loaded">
+            <ScrollViewer Margin="0 15 0 0">
+                <StackPanel Orientation="Vertical" Spacing="10">
+                    <TextBlock Style="{StaticResource TitleTextBlockStyle}">Sound &amp; Color</TextBlock>
+                    <TextBlock>Toggle Audio Effects &amp; Change the Theme</TextBlock>
+
+                    <ToggleSwitch x:Name="SoundToggle" Header="Sound" Toggled="Sound_Toggled" Margin="0 0 0 25" />
+
+                    <ComboBox x:Name="Theme" SelectionChanged="Theme_SelectionChanged" Header="Theme">
+                        <ComboBoxItem>Light</ComboBoxItem>
+                        <ComboBoxItem>Dark</ComboBoxItem>
+                        <ComboBoxItem>System</ComboBoxItem>
+                    </ComboBox>
+
+                    <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 50 0 0">Display Info</TextBlock>
+                    <TextBlock>Change your Display Name</TextBlock>
+
+                    <TextBox x:Name="Name" Width="178" HorizontalAlignment="Left" KeyDown="Name_KeyDown" />
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+
+        <PivotItem x:Name="About" Header="About" Loaded="About_Loaded">
+            <ScrollViewer Margin="0 15 0 0">
+                <StackPanel Orientation="Vertical" Spacing="10">
+                    <TextBlock Style="{StaticResource TitleTextBlockStyle}">About</TextBlock>
+                    <TextBlock x:Name="AppInfo" />
+                    <Button x:Name="CopyAppInfo" Click="CopyAppInfo_Click">Copy</Button>
+
+                    <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 50 0 0">Updates</TextBlock>
+                    <TextBlock>Check &amp; Disable Auto Updates</TextBlock>
+
+                    <ToggleSwitch x:Name="AutoUpdates" Header="Auto Updates" Toggled="AutoUpdates_Toggled" Margin="0 0 0 25" />
+
+                    <Button x:Name="CheckForUpdates" Click="CheckForUpdates_Click">Check For Updates</Button>
+
+                    <TextBlock x:Name="Status">BSC Applications is up-to-date!</TextBlock>
+                    <Button x:Name="Update" Background="Transparent" Height="92" Width="221" Click="Update_Click">
+                        <StackPanel Orientation="Horizontal" Spacing="15">
+                            <SymbolIcon Symbol="ReShare" Margin="0 0 0 30" />
+                            <StackPanel>
+                                <TextBlock Style="{StaticResource TitleTextBlockStyle}" x:Name="Version">Placeholder</TextBlock>
+                                <TextBlock x:Name="Publisher">Placeholder</TextBlock>
+                                <TextBlock Style="{StaticResource CaptionTextBlockStyle}" FontStyle="Italic">Click here to Download</TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+
+        <PivotItem x:Name="Resources" Header="Resources &amp; Feedback">
+            <ScrollViewer Margin="0 15 0 0">
+                <StackPanel Orientation="Vertical" Spacing="10">
+                    <TextBlock Style="{StaticResource TitleTextBlockStyle}">Resources</TextBlock>
+
+                    <StackPanel Orientation="Vertical">
+                        <HyperlinkButton NavigateUri="https://bitsoftwareco.github.io/docs/BSC-Applications.html#update">Update</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://bitsoftwareco.github.io/contribute.html">Contribute</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications">View Code</HyperlinkButton>
+                    </StackPanel>
+
+                    <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 50 0 0">Feedback</TextBlock>
+                    <TextBlock>Report Bugs &amp; Submit Feature Requests</TextBlock>
+
+                    <StackPanel Orientation="Vertical">
+                        <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md">Bug Report</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications/issues/new?assignees=&amp;labels=new+app&amp;template=feature_request.md">Feature Request</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="mailto:jaredgholderrallo@gmail.com">Email US</HyperlinkButton>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+
+        <PivotItem x:Name="Docs" Header="Docs">
+            <Grid Margin="0 15 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="121*"/>
+                </Grid.ColumnDefinitions>
+                <WebView Source="https://bitsoftwareco.github.io/docs/BSC-Applications.html" Grid.ColumnSpan="2" />
+            </Grid>
+        </PivotItem>
+
+    </Pivot>
+</Page>

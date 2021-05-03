@@ -1,0 +1,83 @@
+﻿<Page
+    x:Class="BSC_Applications.Core.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BSC_Applications.Page"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+   
+    <StackPanel Orientation="Vertical" Spacing="20">
+        <StackPanel Orientation="Horizontal" Spacing="15">
+            <PersonPicture x:Name="Pfp" />
+            <StackPanel Orientation="Vertical" Height="58">
+                <TextBlock FontWeight="Bold">WELCOME</TextBlock>
+                <TextBlock x:Name="Name" Style="{StaticResource TitleTextBlockStyle}">Placeholder</TextBlock>
+            </StackPanel>
+        </StackPanel>
+
+        <Grid HorizontalAlignment="Center" ColumnSpacing="15" RowSpacing="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button x:Name="Notes" Background="Transparent" Click="AppButton_Click" Width="252" Height="104">
+                <StackPanel Orientation="Horizontal" Spacing="15">
+                    <SymbolIcon Symbol="Document" Margin="0 0 0 30" />
+
+                    <StackPanel Spacing="10">
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}">Notes</TextBlock>
+                        <TextBlock>Edit and Create Stunning Notes</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Phone_Book" Background="Transparent" Click="AppButton_Click" Width="252" Height="104" Grid.Column="1">
+                <StackPanel Orientation="Horizontal" Spacing="15">
+                    <SymbolIcon Symbol="PhoneBook" Margin="0 0 0 30" />
+
+                    <StackPanel Spacing="10">
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}">Phone Book</TextBlock>
+                        <TextBlock>Open and Save Phone Numbers</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Photo_View" Background="Transparent" Click="AppButton_Click" Width="252" Height="104" Grid.Column="2">
+                <StackPanel Orientation="Horizontal" Spacing="15">
+                    <SymbolIcon Symbol="BrowsePhotos" Margin="0 0 0 30" />
+
+                    <StackPanel Spacing="10">
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}">Photo View</TextBlock>
+                        <TextBlock>View all of your Favorite Photos</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+            <Button x:Name="Todo" Background="Transparent" Click="AppButton_Click" Width="252" Height="104" Padding="-25 0 0 0" Grid.Row="1">
+                <StackPanel Orientation="Horizontal" Spacing="15">
+                    <SymbolIcon Symbol="Accept" Margin="0 0 0 30" />
+
+                    <StackPanel Spacing="10">
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}">Todo</TextBlock>
+                        <TextBlock>Create and Save Todo Lists</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="Settings" Background="Transparent" Click="AppButton_Click" Width="252" Height="104" Padding="-25 0 0 0" Grid.Row="1" Grid.Column="1">
+                <StackPanel Orientation="Horizontal" Spacing="15">
+                    <SymbolIcon Symbol="Setting" Margin="0 0 0 30" />
+
+                    <StackPanel Spacing="10">
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}">Settings</TextBlock>
+                        <TextBlock>Configure BSC Applications</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </StackPanel>
+</Page>

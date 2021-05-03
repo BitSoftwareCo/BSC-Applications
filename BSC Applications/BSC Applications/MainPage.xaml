@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="BSC_Applications.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BSC_Applications"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:muxc="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <muxc:Grid.RowDefinitions>
+            <muxc:RowDefinition Height="0*"/>
+            <muxc:RowDefinition/>
+        </muxc:Grid.RowDefinitions>
+        <TextBlock Text="BSC Applications" x:Name="AppTitleBar" 
+                   Style="{StaticResource CaptionTextBlockStyle}" 
+                   Margin="44 8 0 0" muxc:Grid.RowSpan="2"/>
+
+        <NavigationView x:Name="Nav" ItemInvoked="Nav_ItemInvoked" IsBackButtonVisible="Collapsed" IsPaneOpen="False"
+                             Header="Home" Background="{ThemeResource SystemControlAcrylicWindowBrush}" muxc:Grid.RowSpan="2">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Icon="Home" Content="Home" />
+                <NavigationViewItemSeparator />
+                <NavigationViewItem Icon="Document" Content="Notes" />
+                <NavigationViewItem Icon="PhoneBook" Content="Phone Book" />
+                <NavigationViewItem Icon="BrowsePhotos" Content="Photo View" />
+                <NavigationViewItem Icon="Accept" Content="Todo" />
+            </NavigationView.MenuItems>
+
+            <Frame x:Name="Content" Margin="12 0 12 24" Background="{ThemeResource SystemControlAcrylicWindowBrush}" />
+        </NavigationView>
+    </Grid>
+</Page>
