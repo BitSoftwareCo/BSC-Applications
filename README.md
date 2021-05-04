@@ -1,6 +1,9 @@
 # BSC Applications
 Doing More in Less.
 
+### Contribute
+Contributing to BSC Applications is easy. Follow the [Contributing File](https://github.com/BitSoftwareCo/BSC-Applications/blob/main/contribute.md) for help on Contributing.
+
 ### Is this Version For Me?
 **Key**
 
