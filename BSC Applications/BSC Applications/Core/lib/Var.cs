@@ -12,9 +12,6 @@ namespace BSC_Applications.Core.lib
         /* Notes */
         public static string notesContent = null;
 
-        /* Phone Book */
-        public static List<string> phoneBookContent = new List<string>();
-
         /* Todo */
         public static List<string> todoContent = new List<string>();
     }

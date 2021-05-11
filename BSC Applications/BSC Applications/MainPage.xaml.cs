@@ -51,7 +51,6 @@ namespace BSC_Applications
             {
                 case "Home": Content.Navigate(typeof(Core.Home)); break;
                 case "Notes": Content.Navigate(typeof(Core.Applications.Notes)); break;
-                case "Phone Book": Content.Navigate(typeof(Core.Applications.Phone_Book)); break;
                 case "Photo View": Content.Navigate(typeof(Core.Applications.Photo_View)); break;
                 case "Todo": Content.Navigate(typeof(Core.Applications.Todo)); break;
                 default:

@@ -35,7 +35,7 @@
             <ScrollViewer Margin="0 15 0 0">
                 <StackPanel Orientation="Vertical" Spacing="10">
                     <TextBlock Style="{StaticResource TitleTextBlockStyle}">About</TextBlock>
-                    <TextBlock x:Name="AppInfo" />
+                    <TextBlock x:Name="AppInfo">Placeholder</TextBlock>
                     <Button x:Name="CopyAppInfo" Click="CopyAppInfo_Click">Copy</Button>
 
                     <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 50 0 0">Updates</TextBlock>

@@ -18,6 +18,8 @@ namespace BSC_Applications.Core.Applications
     public sealed partial class Todo
     {
         private string startMessage = "Enter a Task and click \"New\" to add a Task.";
+        private int selectedIndex = -1;
+        private List<string> todoList = new List<string>();
 
         public Todo()
         {
@@ -25,9 +27,10 @@ namespace BSC_Applications.Core.Applications
 
             Message.Text = startMessage;
 
-            if (lib.Var.todoContent.Count != 0)
+            todoList = lib.Var.todoContent;
+            if (todoList.Count != 0)
             {
-                for (int i = 0; i < lib.Var.todoContent.Count; i++)
+                for (int i = 0; i < todoList.Count; i++)
                 {
                     CheckBox item = new CheckBox();
                     item.Content = lib.Var.todoContent[i];
@@ -35,16 +38,31 @@ namespace BSC_Applications.Core.Applications
                 }
                 Message.Text = "";
             }
+
+            MainPage.nav.ItemInvoked += Nav_ItemInvoked;
         }
 
-        private void Task_KeyDown(object sender, KeyRoutedEventArgs e)
+        private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            add(sender, e);
+            selectedIndex = List.SelectedIndex;
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             add(sender, e);
+        }
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedIndex != -1)
+            {
+                List.Items.RemoveAt(selectedIndex);
+
+                if (List.Items.Count == 0)
+                {
+                    Message.Text = startMessage;
+                    Remove.IsEnabled = false;
+                }
+            }
         }
         private async void Save_Click(object sender, RoutedEventArgs e)
         {
@@ -87,6 +105,12 @@ namespace BSC_Applications.Core.Applications
                     OpenTODO(text);
                 else
                     OpenBOF(text);
+
+                if (List.Items.Count == 0)
+                {
+                    Remove.IsEnabled = false;
+                }
+                else Remove.IsEnabled = true;
             }
         }
         private async void New_Click(object sender, RoutedEventArgs e)
@@ -101,9 +125,10 @@ namespace BSC_Applications.Core.Applications
             if (await dialog.ShowAsync() == ContentDialogResult.Primary)
             {
                 Message.Text = startMessage;
+                Remove.IsEnabled = false;
 
                 List.Items.Clear();
-                lib.Var.todoContent.Clear();
+                todoList.Clear();
             }
         }
         private async void Help_Click(object sender, RoutedEventArgs e)
@@ -113,6 +138,8 @@ namespace BSC_Applications.Core.Applications
 
         private void add(object sender, object e)
         {
+            Remove.IsEnabled = true;
+
             string element = sender.ToString();
             if (element.Contains("AppBarButton"))
             {
@@ -123,7 +150,7 @@ namespace BSC_Applications.Core.Applications
                     item.Content = Task.Text;
 
                     List.Items.Add(item);
-                    lib.Var.todoContent.Add((string)item.Content);
+                    todoList.Add((string)item.Content);
 
                     Task.Text = "";
                 }
@@ -163,7 +190,7 @@ namespace BSC_Applications.Core.Applications
                     CheckBox item = new CheckBox();
                     item.Content = items[i];
                     List.Items.Add(item);
-                    lib.Var.todoContent.Add((string)item.Content);
+                    todoList.Add((string)item.Content);
                 }
             }
         }
@@ -175,8 +202,13 @@ namespace BSC_Applications.Core.Applications
                 CheckBox item = new CheckBox();
                 item.Content = items[i];
                 List.Items.Add(item);
-                lib.Var.todoContent.Add((string)item.Content);
+                todoList.Add((string)item.Content);
             }
+        }
+
+        private void Nav_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+            lib.Var.todoContent = todoList;
         }
     }
 }

@@ -38,18 +38,13 @@ namespace BSC_Applications.Core
                     MainPage.frame.Navigate(typeof(Applications.Notes), null, new DrillInNavigationTransitionInfo());
                     MainPage.nav.SelectedItem = MainPage.nav.MenuItems[2];
                     break;
-                case "Phone Book":
-                    MainPage.frame.Navigate(typeof(Applications.Phone_Book), null, new DrillInNavigationTransitionInfo());
-                    MainPage.nav.SelectedItem = MainPage.nav.MenuItems[3];
-                    break;
                 case "Photo View":
                     MainPage.frame.Navigate(typeof(Applications.Photo_View), null, new DrillInNavigationTransitionInfo());
-                    MainPage.nav.SelectedItem = MainPage.nav.MenuItems[4];
+                    MainPage.nav.SelectedItem = MainPage.nav.MenuItems[3];
                     break;
-
                 case "Todo":
                     MainPage.frame.Navigate(typeof(Applications.Todo), null, new DrillInNavigationTransitionInfo());
-                    MainPage.nav.SelectedItem = MainPage.nav.MenuItems[5];
+                    MainPage.nav.SelectedItem = MainPage.nav.MenuItems[4];
                     break;
                 case "Settings":
                     MainPage.frame.Navigate(typeof(Settings), null, new DrillInNavigationTransitionInfo());

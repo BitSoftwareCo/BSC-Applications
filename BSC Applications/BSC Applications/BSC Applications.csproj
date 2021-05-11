@@ -25,7 +25,7 @@
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <AppxBundle>Always</AppxBundle>
-    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+    <AppxBundlePlatforms>x86|x64</AppxBundlePlatforms>
     <AppInstallerUri>https://raw.githubusercontent.com/BitSoftwareCo/BSC-Applications/main/Assets/CurrentVersion</AppInstallerUri>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     <PackageCertificateKeyFile>BSC Applications_TemporaryKey.pfx</PackageCertificateKeyFile>
@@ -131,9 +131,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Core\Applications\Phone_Book.xaml.cs">
-      <DependentUpon>Phone_Book.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Core\Applications\Photo_View.xaml.cs">
       <DependentUpon>Photo_View.xaml</DependentUpon>
     </Compile>
@@ -179,10 +176,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Core\Applications\Phone_Book.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Core\Applications\Photo_View.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
