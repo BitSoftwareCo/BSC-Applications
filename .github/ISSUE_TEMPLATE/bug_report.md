@@ -1,30 +1,20 @@
 ---
 name: Bug report
-about: Create a report to help us improve
-title: ''
+about: Found a bug? Report it here.
+title: Bug - [Very short description]
 labels: bug
-assignees: ''
+assignees: BitSoftwareCo
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Description**
+Describe what the bug does.
 
-**To Reproduce**
+**Reproduce**
 Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
 
 **Expected behavior**
-A clear and concise description of what you expected to happen.
-
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+What did you expect to happen?
 
 **Version**
- - Version [e.g. 0.1.0, Settings > About]
-
-**Additional context**
-Add any other context about the problem here.
+ - Version [e.g. 1.0.0, Settings > About > Version]
