@@ -1,34 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace BSC_Applications.Core.Applications
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+
     public sealed partial class Todo
     {
+        private ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;
+        private bool temp;
+
         private string startMessage = "Enter a Task and click \"New\" to add a Task.";
         private int selectedIndex = -1;
         private List<string> todoList = new List<string>();
 
         public Todo()
         {
+            temp = Boolean.Parse(roamingSettings.Values["temporaryContent"].ToString());
+
             this.InitializeComponent();
 
             Message.Text = startMessage;
 
             todoList = lib.Var.todoContent;
-            if (todoList.Count != 0)
+            if (todoList.Count != 0 && temp)
             {
                 for (int i = 0; i < todoList.Count; i++)
                 {
@@ -37,6 +36,7 @@ namespace BSC_Applications.Core.Applications
                     List.Items.Add(item);
                 }
                 Message.Text = "";
+                Remove.IsEnabled = true;
             }
 
             MainPage.nav.ItemInvoked += Nav_ItemInvoked;
@@ -80,7 +80,7 @@ namespace BSC_Applications.Core.Applications
                     text = SaveTODO(text);
                 else
                     text = SaveBOF(text);
-                
+
                 CachedFileManager.DeferUpdates(file);
                 await FileIO.WriteTextAsync(file, text);
                 await CachedFileManager.CompleteUpdatesAsync(file);
@@ -130,10 +130,6 @@ namespace BSC_Applications.Core.Applications
                 List.Items.Clear();
                 todoList.Clear();
             }
-        }
-        private async void Help_Click(object sender, RoutedEventArgs e)
-        {
-            await Launcher.LaunchUriAsync(new Uri("https://bitsoftwareco.github.io/docs/BSC-Applications.html#todo"));
         }
 
         private void add(object sender, object e)
@@ -208,7 +204,8 @@ namespace BSC_Applications.Core.Applications
 
         private void Nav_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
-            lib.Var.todoContent = todoList;
+            if (temp)
+                lib.Var.todoContent = todoList;
         }
     }
 }

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Drawing;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.Graphics.Imaging;
+using Windows.Media.Capture;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.Storage.Streams;
@@ -54,6 +57,24 @@ namespace BSC_Applications.Core.Applications
                 Copy.Icon = new SymbolIcon(Symbol.Copy);
             }
         }
+        private async void Capture_Click(object sender, RoutedEventArgs e)
+        {
+            CameraCaptureUI captureUI = new CameraCaptureUI();
+            captureUI.PhotoSettings.Format = CameraCaptureUIPhotoFormat.Jpeg;
+
+            path = await captureUI.CaptureFileAsync(CameraCaptureUIMode.Photo);
+            if (path != null)
+            {
+                BitmapDecoder decoder = await BitmapDecoder.CreateAsync(await path.OpenAsync(FileAccessMode.Read));
+                SoftwareBitmapSource bitmapSource = new SoftwareBitmapSource();
+                await bitmapSource.SetBitmapAsync(SoftwareBitmap.Convert(await decoder.GetSoftwareBitmapAsync(),
+                                                                         BitmapPixelFormat.Bgra8,
+                                                                         BitmapAlphaMode.Premultiplied));
+                View.Source = bitmapSource;
+                Copy.IsEnabled = true;
+                Message.Text = "";
+            }
+        }
         private void CopyImage_Click(object sender, RoutedEventArgs e)
         {
             if (path != null)
@@ -64,10 +85,6 @@ namespace BSC_Applications.Core.Applications
 
                 Copy.Icon = new SymbolIcon(Symbol.Accept);
             }
-        }
-        private async void Help_Click(object sender, RoutedEventArgs e)
-        {
-            await Launcher.LaunchUriAsync(new Uri("https://bitsoftwareco.github.io/docs/BSC-Applications.html#photo-view"));
         }
     }
 }

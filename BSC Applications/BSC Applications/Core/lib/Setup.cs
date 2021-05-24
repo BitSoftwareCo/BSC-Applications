@@ -12,27 +12,14 @@ namespace BSC_Applications.Core.lib
         {
             if (!roamingSettings.Values.ContainsKey("new"))
             {
-                roamingSettings.Values["sound"] = true;
                 roamingSettings.Values["displayName"] = WindowsIdentity.GetCurrent().Name.Split("\\")[1];
                 roamingSettings.Values["checkForUpdates"] = true;
+                roamingSettings.Values["temporaryContent"] = true;
+
+                roamingSettings.Values["sound"] = false;
                 roamingSettings.Values["theme"] = 2;
 
-                roamingSettings.Values["new"] = true;
-            }
-        }
-
-        public static List<object> Settings
-        {
-            get
-            {
-                List<object> values = new List<object>();
-
-                values.Add(roamingSettings.Values["sound"]);
-                values.Add(roamingSettings.Values["displayName"]);
-                values.Add(roamingSettings.Values["checkForUpdates"]);
-                values.Add(roamingSettings.Values["theme"]);
-
-                return values;
+                roamingSettings.Values["new"] = false;
             }
         }
     }

@@ -5,8 +5,7 @@
     xmlns:local="using:BSC_Applications"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:muxc="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
     <Grid>
         <muxc:Grid.RowDefinitions>
@@ -14,7 +13,7 @@
             <muxc:RowDefinition/>
         </muxc:Grid.RowDefinitions>
         <NavigationView x:Name="Nav" ItemInvoked="Nav_ItemInvoked" IsBackButtonVisible="Collapsed" IsPaneOpen="False"
-                             Header="Home" Background="{ThemeResource SystemControlAcrylicWindowBrush}" muxc:Grid.RowSpan="2">
+                             Header="Home" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" muxc:Grid.RowSpan="2">
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Home" Content="Home" />
                 <NavigationViewItemSeparator />
@@ -23,7 +22,7 @@
                 <NavigationViewItem Icon="Accept" Content="Todo" />
             </NavigationView.MenuItems>
 
-            <Frame x:Name="Content" Margin="12 0 12 24" Background="{ThemeResource SystemControlAcrylicWindowBrush}" />
+            <Frame x:Name="Content" Margin="12 0 12 24" />
         </NavigationView>
     </Grid>
 </Page>

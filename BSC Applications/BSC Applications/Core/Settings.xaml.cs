@@ -3,22 +3,12 @@ using System.Collections.Generic;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Storage;
-using Windows.Storage.Pickers;
 using Windows.System;
-using Windows.UI;
-using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
 
 namespace BSC_Applications.Core
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class Settings
     {
         ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;
@@ -38,13 +28,16 @@ namespace BSC_Applications.Core
             Theme.SelectedIndex = (int)roamingSettings.Values["theme"];
 
             Name.Text = (string)roamingSettings.Values["displayName"];
+
+            TemporaryContent.IsOn = Boolean.Parse(roamingSettings.Values["temporaryContent"].ToString());
+            ClearTemporaryContent.IsEnabled = Boolean.Parse(roamingSettings.Values["temporaryContent"].ToString());
         }
         private void About_Loaded(object sender, RoutedEventArgs e)
         {
-            AppInfo.Text = $"Name: [{lib.Data.Name}] \n" +
-                           $"Full Name: [{lib.Data.Name}@{lib.Data.Version}] \n" +
-                           $"Version: [{lib.Data.Version}] \n" +
-                           $"Publisher: [{lib.Data.Publisher}]";
+            AppName.Text = lib.Data.Name;
+            AppVersion.Text = lib.Data.Version;
+            AppType.Text = lib.Data.Type;
+            CopyAppInfo.Content = "Copy";
 
             AutoUpdates.IsOn = (bool)roamingSettings.Values["checkForUpdates"];
 
@@ -73,13 +66,34 @@ namespace BSC_Applications.Core
         {
             roamingSettings.Values["displayName"] = Name.Text;
         }
+        private void TemporaryContent_Toggled(object sender, RoutedEventArgs e)
+        {
+            roamingSettings.Values["temporaryContent"] = TemporaryContent.IsOn;
+            ClearTemporaryContent.IsEnabled = Boolean.Parse(roamingSettings.Values["temporaryContent"].ToString());
+        }
+        private async void ClearTemporaryContent_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDialog dialog = new ContentDialog
+            {
+                Title = "Are you sure you want to Clear your Temporary Content?",
+                Content = "Clearing your Temporary Content will delete anything that is unsaved.",
+                PrimaryButtonText = "Clear",
+                SecondaryButtonText = "Cancel"
+            };
+            if (await dialog.ShowAsync() == ContentDialogResult.Primary)
+            {
+                lib.Var.notesContent = null;
+                lib.Var.todoContent = new List<string>();
+            }
+        }
 
         // About
         private void CopyAppInfo_Click(object sender, RoutedEventArgs e)
         {
             DataPackage package = new DataPackage();
-            package.SetText(AppInfo.Text);
+            package.SetText($"{AppName.Text}\n{AppVersion.Text}\n{AppType.Text}");
             Clipboard.SetContent(package);
+            CopyAppInfo.Content = "Copied";
         }
         private void AutoUpdates_Toggled(object sender, RoutedEventArgs e)
         {

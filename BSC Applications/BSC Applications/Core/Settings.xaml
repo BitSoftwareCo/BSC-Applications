@@ -27,6 +27,13 @@
                     <TextBlock>Change your Display Name</TextBlock>
 
                     <TextBox x:Name="Name" Width="178" HorizontalAlignment="Left" KeyDown="Name_KeyDown" />
+
+                    <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 50 0 0">Temporary Content</TextBlock>
+                    <TextBlock>Disable or Clear Temporary Content</TextBlock>
+
+                    <ToggleSwitch x:Name="TemporaryContent" Header="Temporary Content" Toggled="TemporaryContent_Toggled" Margin="0 0 0 25" />
+
+                    <Button x:Name="ClearTemporaryContent" Click="ClearTemporaryContent_Click">Clear Temporary Content</Button>
                 </StackPanel>
             </ScrollViewer>
         </PivotItem>
@@ -35,7 +42,20 @@
             <ScrollViewer Margin="0 15 0 0">
                 <StackPanel Orientation="Vertical" Spacing="10">
                     <TextBlock Style="{StaticResource TitleTextBlockStyle}">About</TextBlock>
-                    <TextBlock x:Name="AppInfo">Placeholder</TextBlock>
+                    <StackPanel Orientation="Vertical" Spacing="10">
+                        <StackPanel Orientation="Horizontal" Spacing="19">
+                            <TextBlock>Name</TextBlock>
+                            <TextBlock x:Name="AppName">Placeholder</TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <TextBlock>Version</TextBlock>
+                            <TextBlock x:Name="AppVersion">Placeholder</TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="26">
+                            <TextBlock>Type</TextBlock>
+                            <TextBlock x:Name="AppType">Placeholder</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
                     <Button x:Name="CopyAppInfo" Click="CopyAppInfo_Click">Copy</Button>
 
                     <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 50 0 0">Updates</TextBlock>
@@ -67,7 +87,7 @@
 
                     <StackPanel Orientation="Vertical">
                         <HyperlinkButton NavigateUri="https://bitsoftwareco.github.io/docs/BSC-Applications.html#update">Update</HyperlinkButton>
-                        <HyperlinkButton NavigateUri="https://bitsoftwareco.github.io/contribute.html">Contribute</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications/blob/main/contribute.md#contribute-to-bsc-applications">Contribute</HyperlinkButton>
                         <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications">View Code</HyperlinkButton>
                     </StackPanel>
 
@@ -75,8 +95,7 @@
                     <TextBlock>Report Bugs &amp; Submit Feature Requests</TextBlock>
 
                     <StackPanel Orientation="Vertical">
-                        <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md">Bug Report</HyperlinkButton>
-                        <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications/issues/new?assignees=&amp;labels=new+app&amp;template=feature_request.md">Feature Request</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications/issues/new?assignees=BitSoftwareCo&amp;labels=bug&amp;template=bug_report.md&amp;title=Bug+-+%5BVery+short+description%5D">Bug Report Via Github</HyperlinkButton>
                         <HyperlinkButton NavigateUri="mailto:jaredgholderrallo@gmail.com">Email US</HyperlinkButton>
                     </StackPanel>
                 </StackPanel>

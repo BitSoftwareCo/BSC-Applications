@@ -29,24 +29,15 @@
                         Key="O" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
-            <AppBarButton x:Name="SaveLocal" Icon="SaveLocal" Label="Save On Device" Click="SaveLocal_Click">
+            <AppBarButton x:Name="SaveLocal" Icon="Save" Label="Save" Click="SaveLocal_Click">
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator
                         Modifiers="Control"
                         Key="S" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
-
-            <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="Help" Icon="Help" Label="Help" Click="Help_Click">
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator
-                            Key="F1" />
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
-            </CommandBar.SecondaryCommands>
         </CommandBar>
-
+        
         <RichEditBox x:Name="Text" Grid.Row="1" />
     </Grid>
 </Page>

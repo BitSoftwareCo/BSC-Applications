@@ -29,7 +29,7 @@
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
                 <AppBarSeparator />
-                <AppBarButton x:Name="Save" Icon="SaveLocal" Label="Save" Click="Save_Click">
+                <AppBarButton x:Name="Save" Icon="Save" Label="Save" Click="Save_Click">
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator
                         Modifiers="Control"
@@ -52,18 +52,12 @@
                                 Key="N" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:Name="Help" Icon="Help" Label="Help" Click="Help_Click">
-                        <AppBarButton.KeyboardAccelerators>
-                            <KeyboardAccelerator
-                                Key="F1" />
-                        </AppBarButton.KeyboardAccelerators>
-                    </AppBarButton>
                 </CommandBar.SecondaryCommands>
             </CommandBar>
 
             <TextBlock x:Name="Message" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" />
             <ListView x:Name="List" BorderThickness="1" SelectionMode="Single" HorizontalAlignment="Stretch" Grid.Row="1" 
-                      SelectionChanged="List_SelectionChanged" />
+                      SelectionChanged="List_SelectionChanged" CanReorderItems="True" AllowDrop="True" />
         </Grid>
     </Grid>
 </Page>

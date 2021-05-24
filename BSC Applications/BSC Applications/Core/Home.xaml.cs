@@ -1,18 +1,10 @@
-﻿using System;
-using Windows.ApplicationModel.Core;
-using Windows.Storage;
-using Windows.System;
+﻿using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace BSC_Applications.Core
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class Home
     {
         ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;

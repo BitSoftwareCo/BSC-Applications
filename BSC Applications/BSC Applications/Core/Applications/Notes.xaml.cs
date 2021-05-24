@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.System;
@@ -10,21 +9,21 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
-
 namespace BSC_Applications.Core.Applications
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+
     public sealed partial class Notes
     {
+        private ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;
+        private bool temp;
+
         public Notes()
         {
+            temp = Boolean.Parse(roamingSettings.Values["temporaryContent"].ToString());
+
             this.InitializeComponent();
 
-            if (lib.Var.notesContent != null)
+            if (lib.Var.notesContent != null && temp)
                 Text.Document.SetText(TextSetOptions.FormatRtf, lib.Var.notesContent);
 
             MainPage.nav.ItemInvoked += Nav_ItemInvoked;
@@ -59,7 +58,6 @@ namespace BSC_Applications.Core.Applications
                     SaveRTF(file);
                 else
                     SaveTXT(file);
-
             }
         }
         private async void Open_Click(object sender, RoutedEventArgs e)
@@ -79,10 +77,6 @@ namespace BSC_Applications.Core.Applications
                 else
                     OpenTXT(file);
             }
-        }
-        private async void Help_Click(object sender, RoutedEventArgs e)
-        {
-            await Launcher.LaunchUriAsync(new Uri("https://bitsoftwareco.github.io/docs/BSC-Applications.html#notes"));
         }
 
         private async void SaveRTF(StorageFile file)
@@ -120,7 +114,8 @@ namespace BSC_Applications.Core.Applications
 
         private void Nav_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
         {
-            Text.Document.GetText(TextGetOptions.FormatRtf, out lib.Var.notesContent);
+            if (temp)
+                Text.Document.GetText(TextGetOptions.FormatRtf, out lib.Var.notesContent);
         }
     }
 }
