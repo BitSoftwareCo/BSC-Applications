@@ -14,6 +14,7 @@ Contributing to BSC Applications is easy. Follow the [Contributing File](https:/
 Supported Versions: (**6**)
 |Version  |Verion No. |Supported|
 |---------|-----------|---------|
+|**1.0.0**|12         |Yes      |
 |**0.2.3**|11         |Yes      |
 |**0.2.2**|10         |Yes      |
 |**0.2.1**|9          |Yes      |
