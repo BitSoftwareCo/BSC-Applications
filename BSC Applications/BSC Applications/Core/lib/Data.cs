@@ -1,4 +1,9 @@
-﻿using Windows.ApplicationModel;
+﻿/*
+ * DESCRIPTION:
+ * This file lets us easily get basic info about the app.
+ * e.g Name, Version, Type.
+ */
+using Windows.ApplicationModel;
 
 namespace BSC_Applications.Core.lib
 {

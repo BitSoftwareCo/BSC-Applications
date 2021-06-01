@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * DESCRIPTION:
+ * This file is used to reads and returns https://github.com/BitSoftwareCo/BSC-Applications/blob/main/package.bof.
+ * 
+ */
+using System;
 using System.Diagnostics;
 using System.Net;
 
@@ -15,7 +20,7 @@ namespace BSC_Applications.Core.lib
                 WebClient webClient = new WebClient();
                 string webPackage = webClient.DownloadString("https://raw.githubusercontent.com/BitSoftwareCo/BSC-Applications/main/package.bof");
                 package = (string[])FileType.ReadBOF(webPackage);
-                
+
                 return 0;
             }
             catch (Exception e)

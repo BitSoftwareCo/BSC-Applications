@@ -1,8 +1,8 @@
-﻿using System;
+﻿/*
+ * DESCRIPTION:
+ * This file wites and reads all of our custiom file types(.BOF).
+ */
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BSC_Applications.Core.lib
 {
@@ -21,7 +21,7 @@ namespace BSC_Applications.Core.lib
 
         public static object[] ReadBOF(object data)
         {
-            string[] format =  data.ToString().Replace("{ ", "")
+            string[] format = data.ToString().Replace("{ ", "")
                                               .Split(", ");
             List<string> final = new List<string>();
             for (int i = 0; i < format.Length; i++)

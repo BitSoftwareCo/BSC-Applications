@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Storage;
+using Windows.Storage.Pickers;
 using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -11,7 +13,7 @@ namespace BSC_Applications.Core
 {
     public sealed partial class Settings
     {
-        ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;
+        private lib.AppSettings appSettings = new lib.AppSettings();
 
         public Settings()
         {
@@ -25,12 +27,10 @@ namespace BSC_Applications.Core
             else
                 SoundToggle.IsOn = false;
 
-            Theme.SelectedIndex = (int)roamingSettings.Values["theme"];
+            Theme.SelectedIndex = appSettings.Theme;
 
-            Name.Text = (string)roamingSettings.Values["displayName"];
-
-            TemporaryContent.IsOn = Boolean.Parse(roamingSettings.Values["temporaryContent"].ToString());
-            ClearTemporaryContent.IsEnabled = Boolean.Parse(roamingSettings.Values["temporaryContent"].ToString());
+            TemporaryContent.IsOn = appSettings.TemporaryContent;
+            ClearTemporaryContent.IsEnabled = appSettings.TemporaryContent;
         }
         private void About_Loaded(object sender, RoutedEventArgs e)
         {
@@ -39,21 +39,25 @@ namespace BSC_Applications.Core
             AppType.Text = lib.Data.Type;
             CopyAppInfo.Content = "Copy";
 
-            AutoUpdates.IsOn = (bool)roamingSettings.Values["checkForUpdates"];
+            AutoUpdates.IsOn = appSettings.CheckForUpdates;
 
             Status.Visibility = Visibility.Collapsed;
             Update.Visibility = Visibility.Collapsed;
+        }
+        private void User_Loaded(object sender, RoutedEventArgs e)
+        {
+            Name.Text = appSettings.DisplayName;
         }
 
         // General
         private void Sound_Toggled(object sender, RoutedEventArgs e)
         {
-            roamingSettings.Values["sound"] = SoundToggle.IsOn.ToString();
-            ElementSoundPlayer.State = Boolean.Parse(roamingSettings.Values["sound"].ToString()) ? ElementSoundPlayerState.On : ElementSoundPlayerState.Off;
+            appSettings.Sound = SoundToggle.IsOn;
+            ElementSoundPlayer.State = appSettings.Sound ? ElementSoundPlayerState.On : ElementSoundPlayerState.Off;
         }
         private void Theme_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            roamingSettings.Values["theme"] = Theme.SelectedIndex;
+            appSettings.Theme = Theme.SelectedIndex;
 
             switch (Theme.SelectedIndex)
             {
@@ -62,14 +66,40 @@ namespace BSC_Applications.Core
                 case 2: MainPage.nav.RequestedTheme = ElementTheme.Default; break;
             }
         }
-        private void Name_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        private async void ImportSettings_Click(object sender, RoutedEventArgs e)
         {
-            roamingSettings.Values["displayName"] = Name.Text;
+            FileOpenPicker open = new FileOpenPicker();
+            open.SuggestedStartLocation = PickerLocationId.Desktop;
+            open.FileTypeFilter.Add(".json");
+
+            StorageFile file = await open.PickSingleFileAsync();
+            if (file != null)
+            {
+                string json = await FileIO.ReadTextAsync(file);
+                lib.AppSettings jsonAppSettings = JsonConvert.DeserializeObject<lib.AppSettings>(json);
+
+                appSettings.DisplayName = jsonAppSettings.DisplayName;
+                appSettings.TemporaryContent = jsonAppSettings.TemporaryContent;
+                appSettings.Sound = jsonAppSettings.Sound;
+                appSettings.Theme = jsonAppSettings.Theme;
+                appSettings.NavbarLocation = jsonAppSettings.NavbarLocation;
+                appSettings.BackgroundAcrylic = jsonAppSettings.BackgroundAcrylic;
+                appSettings.CheckForUpdates = jsonAppSettings.CheckForUpdates;
+
+                ContentDialog dialog = new ContentDialog
+                {
+                    Title = "BSC Applications needs to restart to apply new Settings",
+                    Content = "BSC Applications will restart and apply your new settings.",
+                    PrimaryButtonText = "OK"
+                };
+                await dialog.ShowAsync();
+                CoreApplication.Exit();
+            }
         }
         private void TemporaryContent_Toggled(object sender, RoutedEventArgs e)
         {
-            roamingSettings.Values["temporaryContent"] = TemporaryContent.IsOn;
-            ClearTemporaryContent.IsEnabled = Boolean.Parse(roamingSettings.Values["temporaryContent"].ToString());
+            appSettings.TemporaryContent = TemporaryContent.IsOn;
+            ClearTemporaryContent.IsEnabled = appSettings.TemporaryContent;
         }
         private async void ClearTemporaryContent_Click(object sender, RoutedEventArgs e)
         {
@@ -97,7 +127,7 @@ namespace BSC_Applications.Core
         }
         private void AutoUpdates_Toggled(object sender, RoutedEventArgs e)
         {
-            roamingSettings.Values["checkForUpdates"] = AutoUpdates.IsOn;
+            appSettings.CheckForUpdates = AutoUpdates.IsOn;
         }
         private void CheckForUpdates_Click(object sender, RoutedEventArgs e)
         {
@@ -124,10 +154,32 @@ namespace BSC_Applications.Core
         }
         private async void Update_Click(object sender, RoutedEventArgs e)
         {
+            FileSavePicker savePicker = new FileSavePicker();
+            savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+            savePicker.FileTypeChoices.Add("JSON", new List<string>() { ".json" });
+            savePicker.SuggestedFileName = "BSC Applications Settings";
+
+            StorageFile file = await savePicker.PickSaveFileAsync();
+            if (file != null)
+            {
+                
+
+                string json = JsonConvert.SerializeObject(lib.AppSettings.All);
+                CachedFileManager.DeferUpdates(file);
+                await FileIO.WriteTextAsync(file, json);
+                await CachedFileManager.CompleteUpdatesAsync(file);
+            }
+
             await Launcher.LaunchUriAsync(new Uri("https://bitsoftwareco.github.io/docs/BSC-Applications.html#update"));
             await Launcher.LaunchUriAsync(new Uri($"https://github.com/BitSoftwareCo/BSC-Applications/releases/download/{Version.Text}/BSC.Applications.zip"));
 
             CoreApplication.Exit();
+        }
+
+        // User
+        private void Name_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            appSettings.DisplayName = Name.Text;
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using Windows.ApplicationModel.Core;
-using Windows.Storage;
 using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -10,19 +9,19 @@ namespace BSC_Applications
 
     public sealed partial class MainPage
     {
-        ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;
+        private Core.lib.AppSettings appSettings = new Core.lib.AppSettings();
 
         public static Frame frame;
         public static NavigationView nav;
 
         public MainPage()
         {
-            new Core.lib.Setup();
+            new Core.lib.AppSettings();
 
-            ElementSoundPlayer.State = Boolean.Parse(roamingSettings.Values["sound"].ToString()) ? ElementSoundPlayerState.On
-                                                                                                 : ElementSoundPlayerState.Off;
+            ElementSoundPlayer.State = appSettings.Sound ? ElementSoundPlayerState.On
+                                                         : ElementSoundPlayerState.Off;
 
-            switch (roamingSettings.Values["theme"])
+            switch (appSettings.Theme)
             {
                 case 0: RequestedTheme = ElementTheme.Light; break;
                 case 1: RequestedTheme = ElementTheme.Dark; break;
@@ -48,6 +47,7 @@ namespace BSC_Applications
                 case "Home": Content.Navigate(typeof(Core.Home)); break;
                 case "Notes": Content.Navigate(typeof(Core.Applications.Notes)); break;
                 case "Photo View": Content.Navigate(typeof(Core.Applications.Photo_View)); break;
+                case "Stopwatch": Content.Navigate(typeof(Core.Applications.Stop_Watch)); break;
                 case "Todo": Content.Navigate(typeof(Core.Applications.Todo)); break;
                 default:
                     Content.Navigate(typeof(Core.Settings));
@@ -58,7 +58,7 @@ namespace BSC_Applications
 
         private async void CheckForUpdates()
         {
-            if (Core.lib.Web.Set() == 0 && (bool)roamingSettings.Values["checkForUpdates"])
+            if (Core.lib.Web.Set() == 0 && appSettings.CheckForUpdates)
             {
                 string webVersion = Core.lib.Web.package[0];
                 if (Core.lib.Data.Version != webVersion)
@@ -82,7 +82,7 @@ namespace BSC_Applications
                     }
                     else if (dialogResult == ContentDialogResult.Secondary)
                     {
-                        roamingSettings.Values["checkForUpdates"] = false;
+                        appSettings.CheckForUpdates = false;
                     }
                 }
             }

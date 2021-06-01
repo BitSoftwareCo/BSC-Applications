@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿/*
+ * DESCRIPTION:
+ * This is where temporary content is stored.
+ */
+using System.Collections.Generic;
 
 namespace BSC_Applications.Core.lib
 {

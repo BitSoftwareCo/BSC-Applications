@@ -11,7 +11,7 @@
         <StackPanel Orientation="Horizontal" Spacing="15">
             <PersonPicture x:Name="Pfp" />
             <StackPanel Orientation="Vertical" Height="58">
-                <TextBlock FontWeight="Bold">WELCOME</TextBlock>
+                <TextBlock x:Name="Welcome">welcome</TextBlock>
                 <TextBlock x:Name="Name" Style="{StaticResource TitleTextBlockStyle}">Placeholder</TextBlock>
             </StackPanel>
         </StackPanel>
@@ -47,7 +47,18 @@
                     </StackPanel>
                 </StackPanel>
             </Button>
-            <Button x:Name="Todo" Background="Transparent" Click="AppButton_Click" Width="252" Height="104" Padding="-25 0 0 0" Grid.Column="2">
+            <Button x:Name="Stopwatch" Background="Transparent" Click="AppButton_Click" Width="252" Height="104" Grid.Column="2">
+                <StackPanel Orientation="Horizontal" Spacing="15" Margin="-45 0 0 0">
+                    <SymbolIcon Symbol="Clock" Margin="0 0 0 30" />
+
+                    <StackPanel Spacing="10">
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}">Stopwatch</TextBlock>
+                        <TextBlock>Count the elapsed time</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="Todo" Background="Transparent" Click="AppButton_Click" Width="252" Height="104" Padding="-25 0 0 0" Grid.Row="1">
                 <StackPanel Orientation="Horizontal" Spacing="15">
                     <SymbolIcon Symbol="Accept" Margin="0 0 0 30" />
 
@@ -57,14 +68,13 @@
                     </StackPanel>
                 </StackPanel>
             </Button>
-            
-            <Button x:Name="Settings" Background="Transparent" Click="AppButton_Click" Width="252" Height="104" Padding="-25 0 0 0" Grid.Row="1">
+            <Button x:Name="Settings" Background="Transparent" Click="AppButton_Click" Width="252" Height="104" Padding="-25 0 0 0" Grid.Row="1" Grid.Column="1">
                 <StackPanel Orientation="Horizontal" Spacing="15">
-                    <SymbolIcon Symbol="Setting" Margin="0 0 0 30" />
+                    <SymbolIcon Symbol="Setting" Margin="10 0 0 30" />
 
                     <StackPanel Spacing="10">
                         <TextBlock Style="{StaticResource TitleTextBlockStyle}">Settings</TextBlock>
-                        <TextBlock>Configure BSC Applications</TextBlock>
+                        <TextBlock>Make BSC Applications yours</TextBlock>
                     </StackPanel>
                 </StackPanel>
             </Button>

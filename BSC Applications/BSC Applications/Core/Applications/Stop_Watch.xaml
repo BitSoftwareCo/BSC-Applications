@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="BSC_Applications.Core.Applications.Stop_Watch"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BSC_Applications.Core.Applications"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="25">
+        <StackPanel Orientation="Vertical">
+            <TextBlock  x:Name="Time" Style="{ThemeResource HeaderTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                Placeholder
+            </TextBlock>
+
+            <TextBlock Foreground="Gray" Style="{ThemeResource SubheaderTextBlockStyle}"
+                       HorizontalAlignment="Center" VerticalAlignment="Center">
+                sec
+            </TextBlock>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Width="115" Spacing="15">
+            <Button x:Name="StartStop" Background="Transparent" Width="50" Height="50" HorizontalAlignment="Center" Click="StartStop_Click">
+                <SymbolIcon x:Name="StartStopIcon" Symbol="Play" />
+            </Button>
+            
+            <Button x:Name="Reset" Background="Transparent" Width="50" Height="50" HorizontalAlignment="Center" Click="Reset_Click">
+                <SymbolIcon Symbol="Refresh" />
+            </Button>
+        </StackPanel>
+    </StackPanel>
+</Page>

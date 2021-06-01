@@ -1,5 +1,4 @@
-﻿using Windows.Storage;
-using Windows.UI.Xaml;
+﻿using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 
@@ -7,14 +6,14 @@ namespace BSC_Applications.Core
 {
     public sealed partial class Home
     {
-        ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;
+        private lib.AppSettings appSettings = new lib.AppSettings();
 
         public Home()
         {
             this.InitializeComponent();
 
-            Pfp.DisplayName = roamingSettings.Values["displayName"] as string;
-            Name.Text = roamingSettings.Values["displayName"] as string;
+            Pfp.DisplayName = appSettings.DisplayName;
+            Name.Text = appSettings.DisplayName;
         }
 
         private void AppButton_Click(object sender, RoutedEventArgs e)
@@ -34,9 +33,14 @@ namespace BSC_Applications.Core
                     MainPage.frame.Navigate(typeof(Applications.Photo_View), null, new DrillInNavigationTransitionInfo());
                     MainPage.nav.SelectedItem = MainPage.nav.MenuItems[3];
                     break;
+                case "Stopwatch":
+                    MainPage.frame.Navigate(typeof(Applications.Stop_Watch), null, new DrillInNavigationTransitionInfo());
+                    MainPage.nav.SelectedItem = MainPage.nav.MenuItems[4];
+                    break;
+
                 case "Todo":
                     MainPage.frame.Navigate(typeof(Applications.Todo), null, new DrillInNavigationTransitionInfo());
-                    MainPage.nav.SelectedItem = MainPage.nav.MenuItems[4];
+                    MainPage.nav.SelectedItem = MainPage.nav.MenuItems[5];
                     break;
                 case "Settings":
                     MainPage.frame.Navigate(typeof(Settings), null, new DrillInNavigationTransitionInfo());

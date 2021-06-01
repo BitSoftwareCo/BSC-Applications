@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Windows.Storage;
 using Windows.Storage.Pickers;
-using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -11,7 +10,7 @@ namespace BSC_Applications.Core.Applications
 
     public sealed partial class Todo
     {
-        private ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;
+        private lib.AppSettings appSettings = new lib.AppSettings();
         private bool temp;
 
         private string startMessage = "Enter a Task and click \"New\" to add a Task.";
@@ -20,7 +19,7 @@ namespace BSC_Applications.Core.Applications
 
         public Todo()
         {
-            temp = Boolean.Parse(roamingSettings.Values["temporaryContent"].ToString());
+            temp = appSettings.TemporaryContent;
 
             this.InitializeComponent();
 
@@ -47,9 +46,13 @@ namespace BSC_Applications.Core.Applications
             selectedIndex = List.SelectedIndex;
         }
 
+        private void Task_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter) add();
+        }
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            add(sender, e);
+            add();
         }
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
@@ -132,24 +135,19 @@ namespace BSC_Applications.Core.Applications
             }
         }
 
-        private void add(object sender, object e)
+        private void add()
         {
             Remove.IsEnabled = true;
-
-            string element = sender.ToString();
-            if (element.Contains("AppBarButton"))
+            if (Task.Text != "")
             {
-                if (Task.Text != "")
-                {
-                    Message.Text = "";
-                    CheckBox item = new CheckBox();
-                    item.Content = Task.Text;
+                Message.Text = "";
+                CheckBox item = new CheckBox();
+                item.Content = Task.Text;
 
-                    List.Items.Add(item);
-                    todoList.Add((string)item.Content);
+                List.Items.Add(item);
+                todoList.Add((string)item.Content);
 
-                    Task.Text = "";
-                }
+                Task.Text = "";
             }
         }
 

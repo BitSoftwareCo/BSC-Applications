@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Windows.Storage;
 using Windows.Storage.Pickers;
-using Windows.System;
 using Windows.UI;
 using Windows.UI.Text;
 using Windows.UI.Xaml;
@@ -14,12 +13,12 @@ namespace BSC_Applications.Core.Applications
 
     public sealed partial class Notes
     {
-        private ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;
+        private lib.AppSettings appSettings = new lib.AppSettings();
         private bool temp;
 
         public Notes()
         {
-            temp = Boolean.Parse(roamingSettings.Values["temporaryContent"].ToString());
+            temp = appSettings.TemporaryContent;
 
             this.InitializeComponent();
 
@@ -28,7 +27,7 @@ namespace BSC_Applications.Core.Applications
 
             MainPage.nav.ItemInvoked += Nav_ItemInvoked;
         }
-        
+
         private async void New_Click(object sender, RoutedEventArgs e)
         {
             ContentDialog dialog = new ContentDialog

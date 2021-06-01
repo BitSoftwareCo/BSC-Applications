@@ -13,13 +13,13 @@
   <Identity
     Name="3406ec64-fd29-4985-8b83-ff38194de670"
     Publisher="CN=BSC"
-    Version="1.0.0.0" />
+    Version="1.1.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="3406ec64-fd29-4985-8b83-ff38194de670" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>BSC Applications</DisplayName>
-    <PublisherDisplayName>BSC</PublisherDisplayName>
+    <PublisherDisplayName>Stone Software</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 

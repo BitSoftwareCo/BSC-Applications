@@ -11,25 +11,31 @@
 
         <PivotItem x:Name="General" Header="General" Loaded="General_Loaded">
             <ScrollViewer Margin="0 15 0 0">
-                <StackPanel Orientation="Vertical" Spacing="10">
-                    <TextBlock Style="{StaticResource TitleTextBlockStyle}">Sound &amp; Color</TextBlock>
-                    <TextBlock>Toggle Audio Effects &amp; Change the Theme</TextBlock>
+                <StackPanel Orientation="Vertical" Spacing="20">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}">Personalization</TextBlock>
+                        <TextBlock>Make BSC Applications your own.</TextBlock>
+                    </StackPanel>
 
                     <ToggleSwitch x:Name="SoundToggle" Header="Sound" Toggled="Sound_Toggled" Margin="0 0 0 25" />
 
-                    <ComboBox x:Name="Theme" SelectionChanged="Theme_SelectionChanged" Header="Theme">
+                    <ComboBox x:Name="Theme" SelectionChanged="Theme_SelectionChanged" Header="Theme" Margin="0 0 0 25">
                         <ComboBoxItem>Light</ComboBoxItem>
                         <ComboBoxItem>Dark</ComboBoxItem>
-                        <ComboBoxItem>System</ComboBoxItem>
+                        <ComboBoxItem>Default</ComboBoxItem>
                     </ComboBox>
 
-                    <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 50 0 0">Display Info</TextBlock>
-                    <TextBlock>Change your Display Name</TextBlock>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 40 0 0">Import Settings</TextBlock>
+                        <TextBlock>Import your settings after a Update.</TextBlock>
+                    </StackPanel>
 
-                    <TextBox x:Name="Name" Width="178" HorizontalAlignment="Left" KeyDown="Name_KeyDown" />
+                    <Button x:Name="ImportSettings" Click="ImportSettings_Click">Import</Button>
 
-                    <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 50 0 0">Temporary Content</TextBlock>
-                    <TextBlock>Disable or Clear Temporary Content</TextBlock>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 40 0 0">Temporary Content</TextBlock>
+                        <TextBlock>Disable or Clear Temporary Content</TextBlock>
+                    </StackPanel>
 
                     <ToggleSwitch x:Name="TemporaryContent" Header="Temporary Content" Toggled="TemporaryContent_Toggled" Margin="0 0 0 25" />
 
@@ -40,26 +46,28 @@
 
         <PivotItem x:Name="About" Header="About" Loaded="About_Loaded">
             <ScrollViewer Margin="0 15 0 0">
-                <StackPanel Orientation="Vertical" Spacing="10">
+                <StackPanel Orientation="Vertical" Spacing="20">
                     <TextBlock Style="{StaticResource TitleTextBlockStyle}">About</TextBlock>
                     <StackPanel Orientation="Vertical" Spacing="10">
-                        <StackPanel Orientation="Horizontal" Spacing="19">
+                        <StackPanel Orientation="Horizontal" Spacing="29">
                             <TextBlock>Name</TextBlock>
                             <TextBlock x:Name="AppName">Placeholder</TextBlock>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Spacing="10">
+                        <StackPanel Orientation="Horizontal" Spacing="20">
                             <TextBlock>Version</TextBlock>
                             <TextBlock x:Name="AppVersion">Placeholder</TextBlock>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Spacing="26">
+                        <StackPanel Orientation="Horizontal" Spacing="37">
                             <TextBlock>Type</TextBlock>
                             <TextBlock x:Name="AppType">Placeholder</TextBlock>
                         </StackPanel>
                     </StackPanel>
                     <Button x:Name="CopyAppInfo" Click="CopyAppInfo_Click">Copy</Button>
 
-                    <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 50 0 0">Updates</TextBlock>
-                    <TextBlock>Check &amp; Disable Auto Updates</TextBlock>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 40 0 0">Updates</TextBlock>
+                        <TextBlock>Check &amp; Disable Auto Updates</TextBlock>
+                    </StackPanel>
 
                     <ToggleSwitch x:Name="AutoUpdates" Header="Auto Updates" Toggled="AutoUpdates_Toggled" Margin="0 0 0 25" />
 
@@ -80,19 +88,35 @@
             </ScrollViewer>
         </PivotItem>
 
+        <PivotItem x:Name="User" Header="User" Loaded="User_Loaded">
+            <ScrollViewer Margin="0 15 0 0">
+                <StackPanel Orientation="Vertical" Spacing="20">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}">Display Info</TextBlock>
+                        <TextBlock>Change your Display Name &amp; Birthday</TextBlock>
+                    </StackPanel>
+
+                    <TextBox x:Name="Name" Header="Display Name" Width="296" HorizontalAlignment="Left" KeyDown="Name_KeyDown" />
+                </StackPanel>
+            </ScrollViewer>
+        </PivotItem>
+
         <PivotItem x:Name="Resources" Header="Resources &amp; Feedback">
             <ScrollViewer Margin="0 15 0 0">
-                <StackPanel Orientation="Vertical" Spacing="10">
+                <StackPanel Orientation="Vertical" Spacing="20">
                     <TextBlock Style="{StaticResource TitleTextBlockStyle}">Resources</TextBlock>
 
                     <StackPanel Orientation="Vertical">
                         <HyperlinkButton NavigateUri="https://bitsoftwareco.github.io/docs/BSC-Applications.html#update">Update</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://bitsoftwareco.github.io/docs/BSC-Applications.html">Docs</HyperlinkButton>
                         <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications/blob/main/contribute.md#contribute-to-bsc-applications">Contribute</HyperlinkButton>
                         <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications">View Code</HyperlinkButton>
                     </StackPanel>
 
-                    <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 50 0 0">Feedback</TextBlock>
-                    <TextBlock>Report Bugs &amp; Submit Feature Requests</TextBlock>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 40 0 0">Feedback</TextBlock>
+                        <TextBlock>Report Bugs &amp; Submit Feature Requests</TextBlock>
+                    </StackPanel>
 
                     <StackPanel Orientation="Vertical">
                         <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications/issues/new?assignees=BitSoftwareCo&amp;labels=bug&amp;template=bug_report.md&amp;title=Bug+-+%5BVery+short+description%5D">Bug Report Via Github</HyperlinkButton>
@@ -100,16 +124,6 @@
                     </StackPanel>
                 </StackPanel>
             </ScrollViewer>
-        </PivotItem>
-
-        <PivotItem x:Name="Docs" Header="Docs">
-            <Grid Margin="0 15 0 0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="121*"/>
-                </Grid.ColumnDefinitions>
-                <WebView Source="https://bitsoftwareco.github.io/docs/BSC-Applications.html" Grid.ColumnSpan="2" />
-            </Grid>
         </PivotItem>
 
     </Pivot>
