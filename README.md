@@ -11,7 +11,7 @@ Contributing to BSC Applications is easy. Follow the [Contributing File](https:/
 - Beta: Stable some Features will be removed.
 - Build: May be Unstable most Features will be removed or changed.
 
-Supported Versions: (**7**)
+Supported Versions: (**6**)
 |Version  |Verion No. |Supported|Type |
 |---------|-----------|---------|-----|
 |**1.1.0**|13         |Yes      |Beta |
@@ -20,7 +20,7 @@ Supported Versions: (**7**)
 |**0.2.2**|10         |Yes      |Build|
 |**0.2.1**|9          |Yes      |Build|
 |**0.2.0**|8          |Yes      |Beta |
-|**0.1.3**|7          |Yes      |Build|
+|0.1.3    |7          |No       |Build|
 |0.1.2    |6          |No       |Build|
 |0.1.1    |5          |No       |Build|
 |0.1.0    |4          |No       |Beta |
