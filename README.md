@@ -1,16 +1,11 @@
 # BSC Applications
-Doing More in Less.
+![BSC Applications Logo](https://github.com/BitSoftwareCo/BSC-Applications/raw/main/BSC%20Applications/BSC%20Applications/Assets/SplashScreen.scale-200.png)
+[Product Page](https://bitsoftwareco.github.io) | [Contribute](https://github.com/BitSoftwareCo/BSC-Applications/blob/main/contribute.md#contribute-to-bsc-applications) | [Docs](https://bitsoftwareco.github.io/docs/BSC-Applications.html) | [Change Log](https://bitsoftwareco.github.io/changelog/BSC-Applications.html)
 
-### Contribute
-Contributing to BSC Applications is easy. Follow the [Contributing File](https://github.com/BitSoftwareCo/BSC-Applications/blob/main/contribute.md) for help on Contributing.
+## Support Cycle
+We try to support as many versions of BSC Applications as we can. When a version is supported you can get help and the update service will be intact. If you see that the current version that your running is not supported please update to the latest Major release.
 
-### Is this Version For Me?
-**Key**
-
-- Major: Stable and Most Features will stay.
-- Beta: Stable some Features will be removed.
-- Build: May be Unstable most Features will be removed or changed.
-
+## Versions
 Supported Versions: (**6**)
 |Version  |Verion No. |Supported|Type |
 |---------|-----------|---------|-----|
