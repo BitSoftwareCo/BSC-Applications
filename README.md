@@ -4,21 +4,18 @@
 
 ## Support Cycle
 We try to support as many versions of BSC Applications as we can. When a version is supported you can get help and the update service will be intact. If you see that the current version that your running is not supported please update to the latest Major release.
+**Key**
+- Fresh - Version has very recently been added to the support cycle and will stick around for a bit.
+- Mild - Version is supported and is close to be coming Old.
+- Old - Version is close to being droped from the Support Cyle
 
 ## Versions
 Supported Versions: (**6**)
-|Version  |Verion No. |Supported|Type |
-|---------|-----------|---------|-----|
-|**1.1.0**|13         |Yes      |Beta |
-|**1.0.0**|12         |Yes      |Major|
-|**0.2.3**|11         |Yes      |Build|
-|**0.2.2**|10         |Yes      |Build|
-|**0.2.1**|9          |Yes      |Build|
-|**0.2.0**|8          |Yes      |Beta |
-|0.1.3    |7          |No       |Build|
-|0.1.2    |6          |No       |Build|
-|0.1.1    |5          |No       |Build|
-|0.1.0    |4          |No       |Beta |
-|0.0.2    |3          |No       |Build|
-|0.0.1    |2          |No       |Build|
-|0.0.0    |1          |No       |Init |
+|Version  |Supported Cycle|Type |Verion No. |Build No.|
+|---------|---------------|-----|-----------|---------|
+|**1.1.0**|Fresh          |Beta |13         |110      |
+|**1.0.0**|Fresh          |Major|12         |100      |
+|**0.2.3**|Mild           |Build|11         |023      |
+|**0.2.2**|Mild           |Build|10         |022      |
+|**0.2.1**|Mild           |Build|9          |021      |
+|**0.2.0**|Old            |Beta |8          |020      |
