@@ -1,16 +1,13 @@
 # Contribute to BSC Applications
 
-### What we use
-We use **C# & XAML** with **UWP** to develop BSC Applications. BSC Applications can ONLY run on **Windows 10**.
+## What do you use?
+We use **UWP** with **C# & XAML**. BSC Applications is only able to properly run on **Windows 10 1903 or later**.
 
-### What do I do to Contribute?
-We use pull requests to contribute.
+## How do I contribute?
 - Fork the Repo
 - Make your changes
 - Submit a pull request
 
-### What do we look for in a Pull Request?
-We have a very simple list of things we look for in a pull request:
+## What do we look for in a Pull Request?
 - Code Runs without error
-- Doesn't overide a feature
-- Documentation if its a new feature
+- Doesn't overide any feature
