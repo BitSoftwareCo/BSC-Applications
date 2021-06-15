@@ -1,5 +1,5 @@
 # BSC Applications
-![BSC Applications Logo](https://github.com/BitSoftwareCo/BSC-Applications/raw/main/BSC%20Applications/BSC%20Applications/Assets/SplashScreen.scale-200.png)
+![BSC Applications Logo](https://github.com/BitSoftwareCo/BSC-Applications/raw/main/BSC%20Applications/Assets/SplashScreen.scale-200.png)
 [Product Page](https://bitsoftwareco.github.io) | [Contribute](https://github.com/BitSoftwareCo/BSC-Applications/blob/main/contribute.md#contribute-to-bsc-applications) | [Docs](https://bitsoftwareco.github.io/docs/BSC-Applications.html) | [Change Log](https://bitsoftwareco.github.io/changelog/BSC-Applications.html)
 
 ## Support Cycle
