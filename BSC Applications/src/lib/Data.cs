@@ -3,18 +3,17 @@
  * This file lets us easily get basic info about the app.
  * e.g Name, Version, Type.
  */
-using Windows.ApplicationModel;
 
-namespace BSC_Applications.Core.lib
+namespace BSC_Applications.src.lib
 {
     class Data
     {
-        private static Package package = Package.Current;
-        private static PackageId packageId = package.Id;
+        private static Windows.ApplicationModel.Package package = Windows.ApplicationModel.Package.Current;
+        private static Windows.ApplicationModel.PackageId packageId = package.Id;
 
         // App Info
         private static string name = package.DisplayName;
-        private static PackageVersion version = packageId.Version;
+        private static Windows.ApplicationModel.PackageVersion version = packageId.Version;
 
         public static string Name
         {
@@ -23,6 +22,10 @@ namespace BSC_Applications.Core.lib
         public static string Version
         {
             get { return $"{version.Major}.{version.Minor}.{version.Build}"; }
+        }
+        public static int iVersion
+        {
+            get { return int.Parse($"{version.Major}{version.Minor}{version.Build}"); }
         }
         public static string Type
         {
@@ -36,24 +39,6 @@ namespace BSC_Applications.Core.lib
                 else
                     return "Build";
             }
-        }
-
-        // Publisher Info
-        private static string publisher = package.PublisherDisplayName;
-        private static string website = "https://bitsoftwareco.github.io/";
-        private static string docs = "https://bitsoftwareco.github.io/docs/BSC-Applications.html";
-
-        public static string Publisher
-        {
-            get { return publisher; }
-        }
-        public static string Website
-        {
-            get { return website; }
-        }
-        public static string Docs
-        {
-            get { return docs; }
         }
     }
 }

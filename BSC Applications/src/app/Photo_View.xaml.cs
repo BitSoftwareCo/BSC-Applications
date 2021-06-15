@@ -9,14 +9,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Imaging;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
-
-namespace BSC_Applications.Core.Applications
+namespace BSC_Applications.src.app
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class Photo_View
     {
         StorageFile path = null;
@@ -26,6 +20,8 @@ namespace BSC_Applications.Core.Applications
             this.InitializeComponent();
 
             Message.Text = "Click \"Open\" to Open a Photo.";
+
+            new lib.Events("Photo View Loaded", 0);
         }
 
         private async void Open_Click(object sender, RoutedEventArgs e)

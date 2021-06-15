@@ -1,19 +1,27 @@
 ﻿<Page
-    x:Class="BSC_Applications.Core.Applications.Photo_View"
+    x:Class="BSC_Applications.src.app.Notes"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:BSC_Applications.Core.Applications"
+    xmlns:local="using:BSC_Applications.src.app"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid x:Name="grid">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <CommandBar Background="Transparent" Grid.Row="0">
+            <AppBarButton x:Name="New" Icon="Add" Label="New" Click="New_Click">
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator
+                        Modifiers="Control"
+                        Key="N" />
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
+            <AppBarSeparator />
             <AppBarButton x:Name="Open" Icon="OpenFile" Label="Open" Click="Open_Click">
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator
@@ -21,20 +29,15 @@
                         Key="O" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
-            <AppBarSeparator />
-            <AppBarButton x:Name="Capture" Icon="Camera" Label="Capture" Click="Capture_Click" />
-            <AppBarButton x:Name="Copy" Icon="Paste" Label="Copy" IsEnabled="False" Click="CopyImage_Click">
+            <AppBarButton x:Name="SaveLocal" Icon="Save" Label="Save" Click="SaveLocal_Click">
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator
                         Modifiers="Control"
-                        Key="C" />
+                        Key="S" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
         </CommandBar>
-
-        <Grid Grid.Row="1">
-            <TextBlock x:Name="Message" HorizontalAlignment="Center" VerticalAlignment="Center" />
-            <Image x:Name="View"  />
-        </Grid>
+        
+        <RichEditBox x:Name="Text" Grid.Row="1" />
     </Grid>
 </Page>

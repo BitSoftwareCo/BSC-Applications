@@ -2,9 +2,9 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace BSC_Applications.Core.Applications
+namespace BSC_Applications.src.app
 {
-    public sealed partial class Stop_Watch : Page
+    public sealed partial class Stop_Watch
     {
         private DispatcherTimer Timer = new DispatcherTimer();
         private int tick = 0;
@@ -19,7 +19,9 @@ namespace BSC_Applications.Core.Applications
             Timer.Tick += Timer_Tick;
             Timer.Interval = TimeSpan.FromSeconds(1);
 
-            MainPage.nav.ItemInvoked += Nav_ItemInvoked;
+            Navigation.nav.ItemInvoked += Nav_ItemInvoked;
+
+            new lib.Events("Stopwatch Loaded", 0);
         }
 
         private void StartStop_Click(object sender, RoutedEventArgs e)

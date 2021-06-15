@@ -12,7 +12,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -25,7 +25,7 @@
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <AppxBundle>Always</AppxBundle>
-    <AppxBundlePlatforms>x86|x64</AppxBundlePlatforms>
+    <AppxBundlePlatforms>x86|x64|arm64</AppxBundlePlatforms>
     <AppInstallerUri>https://raw.githubusercontent.com/BitSoftwareCo/BSC-Applications/main/Assets/CurrentVersion</AppInstallerUri>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     <PackageCertificateKeyFile>BSC Applications_TemporaryKey.pfx</PackageCertificateKeyFile>
@@ -131,30 +131,37 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Core\Applications\Photo_View.xaml.cs">
+    <Compile Include="src\app\Photo_View.xaml.cs">
       <DependentUpon>Photo_View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Core\Applications\Notes.xaml.cs">
+    <Compile Include="src\app\Notes.xaml.cs">
       <DependentUpon>Notes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Core\Applications\Stop_Watch.xaml.cs">
+    <Compile Include="src\app\Stop_Watch.xaml.cs">
       <DependentUpon>Stop_Watch.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Core\Applications\Todo.xaml.cs">
+    <Compile Include="src\app\Todo.xaml.cs">
       <DependentUpon>Todo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Core\Home.xaml.cs">
+    <Compile Include="src\Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Core\lib\AppSettings.cs" />
-    <Compile Include="Core\lib\Data.cs" />
-    <Compile Include="Core\lib\FileType.cs" />
-    <Compile Include="Core\lib\Var.cs" />
-    <Compile Include="Core\lib\Web.cs" />
+    <Compile Include="src\lib\AppSettings.cs" />
+    <Compile Include="src\lib\Data.cs" />
+    <Compile Include="src\lib\Events.cs" />
+    <Compile Include="src\lib\FileType.cs" />
+    <Compile Include="src\lib\Var.cs" />
+    <Compile Include="src\lib\Package.cs" />
+    <Compile Include="src\Navigation.xaml.cs">
+      <DependentUpon>Navigation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="src\Setup.xaml.cs">
+      <DependentUpon>Setup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Core\Settings.xaml.cs">
+    <Compile Include="src\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -179,23 +186,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Core\Applications\Photo_View.xaml">
+    <Page Include="src\app\Photo_View.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Core\Applications\Notes.xaml">
+    <Page Include="src\app\Notes.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Core\Applications\Stop_Watch.xaml">
+    <Page Include="src\app\Stop_Watch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Core\Applications\Todo.xaml">
+    <Page Include="src\app\Todo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Core\Home.xaml">
+    <Page Include="src\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Navigation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="src\Setup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -203,7 +218,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Core\Settings.xaml">
+    <Page Include="src\Settings.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

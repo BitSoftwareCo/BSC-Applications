@@ -8,7 +8,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
-namespace BSC_Applications.Core.Applications
+namespace BSC_Applications.src.app
 {
 
     public sealed partial class Notes
@@ -25,7 +25,9 @@ namespace BSC_Applications.Core.Applications
             if (lib.Var.notesContent != null && temp)
                 Text.Document.SetText(TextSetOptions.FormatRtf, lib.Var.notesContent);
 
-            MainPage.nav.ItemInvoked += Nav_ItemInvoked;
+            Navigation.nav.ItemInvoked += Nav_ItemInvoked;
+
+            new lib.Events("Notes Loaded", 0);
         }
 
         private async void New_Click(object sender, RoutedEventArgs e)

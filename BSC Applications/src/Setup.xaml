@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="BSC_Applications.src.Setup"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BSC_Applications.src"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer Margin="15 15 0 0">
+        <StackPanel Orientation="Vertical" Spacing="20">
+            <StackPanel Orientation="Vertical">
+                <TextBlock FontWeight="Bold">IMPORT</TextBlock>
+                <TextBlock Style="{ThemeResource TitleTextBlockStyle}" FontWeight="SemiBold">Not new?</TextBlock>
+                <TextBlock>Import your "BSC Applications Settings.json" file.</TextBlock>
+            </StackPanel>
+            <Button x:Name="Import" Click="Import_Click">Import</Button>
+
+            <StackPanel Orientation="Vertical" Margin="0 50 0 0">
+                <TextBlock FontWeight="Bold">USER</TextBlock>
+                <TextBlock Style="{ThemeResource TitleTextBlockStyle}" FontWeight="SemiBold">What's your name?</TextBlock>
+                <TextBlock>BSC Applications displays your name on the home screen.</TextBlock>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Spacing="11">
+                <TextBox x:Name="Name" PlaceholderText="Your name here" Width="203" TextChanged="Name_TextChanged" />
+            </StackPanel>
+            
+            <StackPanel Orientation="Vertical" Margin="0 50 0 0">
+                <TextBlock FontWeight="Bold">PERSONALIZATION</TextBlock>
+                <TextBlock Style="{ThemeResource TitleTextBlockStyle}" FontWeight="SemiBold">Sound &amp; Theme</TextBlock>
+                <TextBlock>Toggle sound &amp; change the theme.</TextBlock>
+            </StackPanel>
+
+            <ToggleSwitch x:Name="Sound" Toggled="Sound_Toggled" Header="Sound" />
+            <ComboBox x:Name="Theme" SelectionChanged="Theme_SelectionChanged" Header="Theme">
+                <ComboBoxItem>Light</ComboBoxItem>
+                <ComboBoxItem>Dark</ComboBoxItem>
+                <ComboBoxItem>Default</ComboBoxItem>
+            </ComboBox>
+
+            <Button x:Name="FinishButton" Click="FinishButton_Click" Margin="0 35 0 0">Finish</Button>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

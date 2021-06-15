@@ -9,7 +9,7 @@ using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace BSC_Applications.Core
+namespace BSC_Applications.src
 {
     public sealed partial class Settings
     {
@@ -18,6 +18,8 @@ namespace BSC_Applications.Core
         public Settings()
         {
             this.InitializeComponent();
+
+            new lib.Events("Settings Loaded", 0);
         }
 
         private void General_Loaded(object sender, RoutedEventArgs e)
@@ -61,9 +63,24 @@ namespace BSC_Applications.Core
 
             switch (Theme.SelectedIndex)
             {
-                case 0: MainPage.nav.RequestedTheme = ElementTheme.Light; break;
-                case 1: MainPage.nav.RequestedTheme = ElementTheme.Dark; break;
-                case 2: MainPage.nav.RequestedTheme = ElementTheme.Default; break;
+                case 0: Navigation.nav.RequestedTheme = ElementTheme.Light; break;
+                case 1: Navigation.nav.RequestedTheme = ElementTheme.Dark; break;
+                case 2: Navigation.nav.RequestedTheme = ElementTheme.Default; break;
+            }
+        }
+        private async void ResetSettings_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDialog dialog = new ContentDialog
+            {
+                Title = "Are you sure you want to reset your settings?",
+                Content = "When you reset your settings BSC Applications will close.",
+                PrimaryButtonText = "Reset",
+                SecondaryButtonText = "Cancel"
+            };
+            if (await dialog.ShowAsync() == ContentDialogResult.Primary)
+            {
+                appSettings.New = true;
+                CoreApplication.Exit();
             }
         }
         private async void ImportSettings_Click(object sender, RoutedEventArgs e)
@@ -85,6 +102,7 @@ namespace BSC_Applications.Core
                 appSettings.NavbarLocation = jsonAppSettings.NavbarLocation;
                 appSettings.BackgroundAcrylic = jsonAppSettings.BackgroundAcrylic;
                 appSettings.CheckForUpdates = jsonAppSettings.CheckForUpdates;
+                appSettings.New = jsonAppSettings.New;
 
                 ContentDialog dialog = new ContentDialog
                 {
@@ -134,14 +152,15 @@ namespace BSC_Applications.Core
             Update.Visibility = Visibility.Collapsed;
             Status.Visibility = Visibility.Collapsed;
 
-            if (lib.Web.Set() == 0)
+            int result = lib.Package.Set();
+            if (result == 0)
             {
-                if (lib.Data.Version != lib.Web.package[0])
+                if (lib.Data.iVersion < lib.Package.version)
                 {
                     Update.Visibility = Visibility.Visible;
 
-                    Version.Text = lib.Web.package[0];
-                    Publisher.Text = $"Publisher: {lib.Web.package[1].Split("\n")[0]}";
+                    Version.Text = lib.Package.sVersion;
+                    Publisher.Text = $"Publisher: {lib.Package.publisher}";
                 }
                 else
                     Status.Visibility = Visibility.Visible;
@@ -162,8 +181,6 @@ namespace BSC_Applications.Core
             StorageFile file = await savePicker.PickSaveFileAsync();
             if (file != null)
             {
-                
-
                 string json = JsonConvert.SerializeObject(lib.AppSettings.All);
                 CachedFileManager.DeferUpdates(file);
                 await FileIO.WriteTextAsync(file, json);
@@ -180,6 +197,26 @@ namespace BSC_Applications.Core
         private void Name_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
             appSettings.DisplayName = Name.Text;
+        }
+
+        // Resources & Feedback
+        private async void SaveEventLog_Click(object sender, RoutedEventArgs e)
+        {
+            FileSavePicker savePicker = new FileSavePicker();
+            savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
+            savePicker.FileTypeChoices.Add("LOG File", new List<string>() { ".log" });
+            savePicker.SuggestedFileName = "BSC Applications Event Log";
+
+            StorageFile file = await savePicker.PickSaveFileAsync();
+            if (file != null)
+            {
+                string log = lib.Events.events;
+                CachedFileManager.DeferUpdates(file);
+                await FileIO.WriteTextAsync(file, log);
+                await CachedFileManager.CompleteUpdatesAsync(file);
+
+                await Launcher.LaunchUriAsync(new Uri(file.Path));
+            }
         }
     }
 }

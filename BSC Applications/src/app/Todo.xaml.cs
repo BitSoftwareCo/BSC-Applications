@@ -5,7 +5,7 @@ using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
-namespace BSC_Applications.Core.Applications
+namespace BSC_Applications.src.app
 {
 
     public sealed partial class Todo
@@ -38,7 +38,9 @@ namespace BSC_Applications.Core.Applications
                 Remove.IsEnabled = true;
             }
 
-            MainPage.nav.ItemInvoked += Nav_ItemInvoked;
+            Navigation.nav.ItemInvoked += Nav_ItemInvoked;
+
+            new lib.Events("Todo Loaded", 0);
         }
 
         private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)

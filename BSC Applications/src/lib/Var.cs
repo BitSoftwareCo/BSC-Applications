@@ -4,7 +4,7 @@
  */
 using System.Collections.Generic;
 
-namespace BSC_Applications.Core.lib
+namespace BSC_Applications.src.lib
 {
     class Var
     {
