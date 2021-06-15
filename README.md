@@ -1,28 +1,28 @@
 # BSC Applications
-Doing More in Less.
+![BSC Applications Logo](https://github.com/BitSoftwareCo/BSC-Applications/raw/main/BSC%20Applications/BSC%20Applications/Assets/SplashScreen.scale-200.png)
+[Product Page](https://bitsoftwareco.github.io) | [Contribute](https://github.com/BitSoftwareCo/BSC-Applications/blob/main/contribute.md#contribute-to-bsc-applications) | [Docs](https://bitsoftwareco.github.io/docs/BSC-Applications.html) | [Change Log](https://bitsoftwareco.github.io/changelog/BSC-Applications.html)
 
-### Contribute
-Contributing to BSC Applications is easy. Follow the [Contributing File](https://github.com/BitSoftwareCo/BSC-Applications/blob/main/contribute.md) for help on Contributing.
+## Support Cycle
+We try to support as many versions of BSC Applications as we can. When a version is supported you can get help and the update service will be intact. If you see that the current version that your running is not supported please update to the latest Major release.
 
-### Is this Version For Me?
 **Key**
+- Fresh - Version has very recently been added to the support cycle and will stick around for a bit.
+- Mild - Version is supported and is close to be coming Old.
+- Old - Version is close to being droped from the Support Cyle
 
-- Major: Stable and Most Features will stay.
-- Beta: Stable some Features will be removed.
-- Build: May be Unstable most Features will be removed or changed.
+## Versions
+**How do build numbers work?**
+Our build numbers goes from 1 ~ 9 then A ~ Z. When a build number reaches Z it goes back to 0 and increments the next number by 1.
+- **e.g:** ```00Z``` -> ```010```
+- **e.g:** ```0ZZ``` -> ```100```
+- **e.g:** ```1ZZ``` -> ```200```
 
 Supported Versions: (**6**)
-|Version  |Verion No. |Supported|
-|---------|-----------|---------|
-|**1.0.0**|12         |Yes      |
-|**0.2.3**|11         |Yes      |
-|**0.2.2**|10         |Yes      |
-|**0.2.1**|9          |Yes      |
-|**0.2.0**|8          |Yes      |
-|**0.1.3**|7          |Yes      |
-|0.1.2    |6          |No       |
-|0.1.1    |5          |No       |
-|0.1.0    |4          |No       |
-|0.0.2    |3          |No       |
-|0.0.1    |2          |No       |
-|0.0.0    |1          |No       |
+|Version|Supported Cycle|Type |Verion No. |Build No.|
+|-------|---------------|-----|-----------|---------|
+|1.1.0  |Fresh          |Beta |13         |```00D```|
+|1.0.0  |Fresh          |Major|12         |```00C```|
+|0.2.3  |Mild           |Build|11         |```00B```|
+|0.2.2  |Mild           |Build|10         |```00A```|
+|0.2.1  |Mild           |Build|9          |```009```|
+|0.2.0  |Old            |Beta |8          |```008```|
