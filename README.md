@@ -20,9 +20,10 @@ Our build numbers goes from 1 ~ 9 then A ~ Z. When a build number reaches Z it g
 Supported Versions: (**6**)
 |Version|Supported Cycle|Type |Verion No. |Build No.|
 |-------|---------------|-----|-----------|---------|
+|1.2.0  |Fresh          |Beta |14         |```00E```|
 |1.1.0  |Fresh          |Beta |13         |```00D```|
-|1.0.0  |Fresh          |Major|12         |```00C```|
+|1.0.0  |Mild           |Major|12         |```00C```|
 |0.2.3  |Mild           |Build|11         |```00B```|
 |0.2.2  |Mild           |Build|10         |```00A```|
-|0.2.1  |Mild           |Build|9          |```009```|
+|0.2.1  |Old            |Build|9          |```009```|
 |0.2.0  |Old            |Beta |8          |```008```|
