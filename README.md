@@ -17,7 +17,7 @@ Our build numbers goes from 1 ~ 9 then A ~ Z. When a build number reaches Z it g
 - **e.g:** ```0ZZ``` -> ```100```
 - **e.g:** ```1ZZ``` -> ```200```
 
-Supported Versions: (**7**)
+Supported Versions: (**7** / 10)
 |Version|Supported Cycle|Type |Verion No. |Build No.|
 |-------|---------------|-----|-----------|---------|
 |1.2.0  |Fresh          |Beta |14         |```00E```|
