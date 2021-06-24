@@ -8,7 +8,8 @@ We try to support as many versions of BSC Applications as we can. When a version
 **Key**
 - Fresh - Version has very recently been added to the support cycle and will stick around for a bit.
 - Mild - Version is supported and is close to be coming Old.
-- Old - Version is close to being droped from the Support Cyle
+- Old - Version is close to being tainted.
+- Tainted - Version is supported and is scheduled to be droped from the support cycle soon.
 
 ## Versions
 **How do build numbers work?**
@@ -26,4 +27,4 @@ Supported Versions: (**7** / 10)
 |0.2.3  |Mild           |Build|11         |```00B```|
 |0.2.2  |Mild           |Build|10         |```00A```|
 |0.2.1  |Old            |Build|9          |```009```|
-|0.2.0  |Old            |Beta |8          |```008```|
+|0.2.0  |Tainted        |Beta |8          |```008```|
