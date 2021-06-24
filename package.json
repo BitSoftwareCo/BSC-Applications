@@ -1,6 +1,6 @@
 {
-	"currentType": "build",
-	"currentVersion": "1.2.1",
+	"currentType": "beta",
+	"currentVersion": "1.2.0",
 	"currentPublisher": "Stone Software",
-	"currentChangeLog": " • \".appinstaller\" used for updates and install\n • Project You support\n • ARM 64 support",
+	"currentChangeLog": " • Setup Screen\n • JSON in web package\n • Event Log",
 }
