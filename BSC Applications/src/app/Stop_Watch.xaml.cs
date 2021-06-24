@@ -9,17 +9,21 @@ namespace BSC_Applications.src.app
         private DispatcherTimer Timer = new DispatcherTimer();
         private int tick = 0;
 
+        private int sec = 0;
+        private int min = 0;
+        private int hou = 0;
+
         public Stop_Watch()
         {
             this.InitializeComponent();
 
-            Time.Text = "0";
+            Time.Text = "0:0:0";
 
             DataContext = this;
             Timer.Tick += Timer_Tick;
             Timer.Interval = TimeSpan.FromSeconds(1);
 
-            Navigation.nav.ItemInvoked += Nav_ItemInvoked;
+            MainPage.nav.ItemInvoked += Nav_ItemInvoked;
 
             new lib.Events("Stopwatch Loaded", 0);
         }
@@ -39,14 +43,26 @@ namespace BSC_Applications.src.app
         }
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
-            tick = 0;
-            Time.Text = $"0";
+            sec = 0;
+            min = 0;
+            hou = 0;
+            Time.Text = $"0:0:0";
+
+            Timer.Stop();
+            StartStopIcon.Symbol = Symbol.Play;
         }
 
         private void Timer_Tick(object sender, object e)
         {
             tick++;
-            Time.Text = $"{tick}";
+            sec = tick;
+            min = tick / 60;
+            hou = tick / 3600;
+
+            if (sec == 60) sec = 0;
+            if (min == 60) min = 0;
+
+            Time.Text = $"{hou}:{min}:{sec}";
         }
 
         private void Nav_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)

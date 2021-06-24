@@ -33,7 +33,12 @@
         </CommandBar>
 
         <Grid Grid.Row="1">
-            <TextBlock x:Name="Message" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <StackPanel x:Name="Message" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Spacing="25">
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8E5;" FontSize="50" />
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
+                           MaxWidth="150" TextWrapping="WrapWholeWords">Click "Open" to Open a Photo.</TextBlock>
+            </StackPanel>
+            
             <Image x:Name="View"  />
         </Grid>
     </Grid>

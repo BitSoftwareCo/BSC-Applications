@@ -14,12 +14,23 @@
         </Grid.RowDefinitions>
 
         <CommandBar Background="Transparent" Grid.Row="0">
-            <AppBarButton x:Name="New" Icon="Add" Label="New" Click="New_Click">
+            <AppBarButton x:Name="New" Icon="Add" Label="New">
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator
                         Modifiers="Control"
                         Key="N" />
                 </AppBarButton.KeyboardAccelerators>
+                <AppBarButton.Flyout>
+                    <Flyout x:Name="NewFlyout">
+                        <StackPanel Spacing="20">
+                            <TextBlock>Creating a new Note will delete any unsaved text.</TextBlock>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <Button x:Name="NewFlyout_New" Click="New_Click">Create new note</Button>
+                                <Button x:Name="NewFlyout_Cancel" Click="New_Click">Cancel</Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Flyout>
+                </AppBarButton.Flyout>
             </AppBarButton>
             <AppBarSeparator />
             <AppBarButton x:Name="Open" Icon="OpenFile" Label="Open" Click="Open_Click">

@@ -19,8 +19,6 @@ namespace BSC_Applications.src.app
         {
             this.InitializeComponent();
 
-            Message.Text = "Click \"Open\" to Open a Photo.";
-
             new lib.Events("Photo View Loaded", 0);
         }
 
@@ -40,7 +38,7 @@ namespace BSC_Applications.src.app
             {
                 Copy.IsEnabled = true;
 
-                Message.Text = "";
+                Message.Visibility = Visibility.Collapsed;
                 using (IRandomAccessStream fileStream = await path.OpenAsync(FileAccessMode.Read))
                 {
                     BitmapImage bitmapImage = new BitmapImage();
@@ -65,7 +63,7 @@ namespace BSC_Applications.src.app
                                                                          BitmapAlphaMode.Premultiplied));
                 View.Source = bitmapSource;
                 Copy.IsEnabled = true;
-                Message.Text = "";
+                Message.Visibility = Visibility.Collapsed;
             }
         }
         private void CopyImage_Click(object sender, RoutedEventArgs e)

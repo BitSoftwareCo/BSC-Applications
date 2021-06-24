@@ -7,5 +7,24 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:muxc="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     mc:Ignorable="d">
 
-    <Frame x:Name="Content" />
+    <Grid>
+        <muxc:Grid.RowDefinitions>
+            <muxc:RowDefinition Height="0*"/>
+            <muxc:RowDefinition/>
+        </muxc:Grid.RowDefinitions>
+
+        <NavigationView x:Name="Nav" ItemInvoked="Nav_ItemInvoked" IsBackButtonVisible="Collapsed" IsPaneOpen="False"
+                        Header="Home" muxc:Grid.RowSpan="2">
+            <NavigationView.MenuItems>
+                <NavigationViewItem Icon="Home" Content="Home" />
+                <NavigationViewItemSeparator />
+                <NavigationViewItem Icon="Document" Content="Notes" />
+                <NavigationViewItem Icon="BrowsePhotos" Content="Photo View" />
+                <NavigationViewItem Icon="Clock" Content="Stopwatch" />
+                <NavigationViewItem Icon="Accept" Content="Todo" />
+            </NavigationView.MenuItems>
+
+            <Frame x:Name="Content" Margin="12 0 12 24" />
+        </NavigationView>
+    </Grid>
 </Page>

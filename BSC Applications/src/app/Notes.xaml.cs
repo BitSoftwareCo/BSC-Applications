@@ -13,36 +13,28 @@ namespace BSC_Applications.src.app
 
     public sealed partial class Notes
     {
-        private lib.AppSettings appSettings = new lib.AppSettings();
+        private static ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;
         private bool temp;
 
         public Notes()
         {
-            temp = appSettings.TemporaryContent;
+            temp = Boolean.Parse(roamingSettings.Values["temporaryContent"].ToString());
 
             this.InitializeComponent();
 
             if (lib.Var.notesContent != null && temp)
                 Text.Document.SetText(TextSetOptions.FormatRtf, lib.Var.notesContent);
 
-            Navigation.nav.ItemInvoked += Nav_ItemInvoked;
+            MainPage.nav.ItemInvoked += Nav_ItemInvoked;
 
             new lib.Events("Notes Loaded", 0);
         }
 
-        private async void New_Click(object sender, RoutedEventArgs e)
+        private void New_Click(object sender, RoutedEventArgs e)
         {
-            ContentDialog dialog = new ContentDialog
-            {
-                Title = "Are you sure you want to create a new Note?",
-                Content = "Creating a new Note will delete any unsaved text.",
-                PrimaryButtonText = "New",
-                SecondaryButtonText = "Cancel"
-            };
-            if (await dialog.ShowAsync() == ContentDialogResult.Primary)
-            {
-                Text.Document.SetText(0, "");
-            }
+            Button senderButton = (Button)sender;
+            if (senderButton.Name == "NewFlyout_New") Text.Document.SetText(0, "");
+            NewFlyout.Hide();
         }
         private async void SaveLocal_Click(object sender, RoutedEventArgs e)
         {

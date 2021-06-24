@@ -21,6 +21,7 @@
                     </StackPanel>
                 </CommandBar.Content>
 
+                <AppBarButton x:Name="Add" Icon="Add" Label="Add" Click="Add_Click" />
                 <AppBarButton x:Name="Remove" Icon="Remove" Label="Remove" IsEnabled="False" Click="Remove_Click">
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator
@@ -28,24 +29,6 @@
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
                 <AppBarSeparator />
-                <AppBarButton x:Name="New" Label="New" Icon="Add">
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator
-                                Modifiers="Control"
-                                Key="N" />
-                    </AppBarButton.KeyboardAccelerators>
-                    <AppBarButton.Flyout>
-                        <Flyout x:Name="NewFlyout">
-                            <StackPanel Spacing="20">
-                                <TextBlock>Creating a new Todo List will delete any unsaved tasks.</TextBlock>
-                                <StackPanel Orientation="Horizontal" Spacing="10">
-                                    <Button x:Name="NewFlyout_New" Click="New_Click">Create new todo list</Button>
-                                    <Button x:Name="NewFlyout_Cancel" Click="New_Click">Cancel</Button>
-                                </StackPanel>
-                            </StackPanel>
-                        </Flyout>
-                    </AppBarButton.Flyout>
-                </AppBarButton>
                 <AppBarButton x:Name="Save" Icon="Save" Label="Save" Click="Save_Click">
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator
@@ -60,12 +43,21 @@
                         Key="O" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
+
+                <CommandBar.SecondaryCommands>
+                    <AppBarButton x:Name="New" Label="New" Click="New_Click">
+                        <AppBarButton.KeyboardAccelerators>
+                            <KeyboardAccelerator
+                                Modifiers="Control"
+                                Key="N" />
+                        </AppBarButton.KeyboardAccelerators>
+                    </AppBarButton>
+                </CommandBar.SecondaryCommands>
             </CommandBar>
 
-            <StackPanel x:Name="Message" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Spacing="25">
-                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE710;" FontSize="50" />
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
-                           MaxWidth="150" TextWrapping="WrapWholeWords">Enter a Task and press "enter" to add a Task.</TextBlock>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+                <FontIcon x:Name="MessageIcon" FontFamily="Segoe MDL2 Assets" Glyph="&#xE8FB;" FontSize="50" />
+                <TextBlock x:Name="MessageText" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" />
             </StackPanel>
             
             <ListView x:Name="List" BorderThickness="1" SelectionMode="Single" HorizontalAlignment="Stretch" Grid.Row="1" 

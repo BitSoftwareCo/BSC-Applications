@@ -15,7 +15,7 @@
 
             <TextBlock Foreground="Gray" Style="{ThemeResource SubheaderTextBlockStyle}"
                        HorizontalAlignment="Center" VerticalAlignment="Center">
-                sec
+                hour / min / sec
             </TextBlock>
         </StackPanel>
 

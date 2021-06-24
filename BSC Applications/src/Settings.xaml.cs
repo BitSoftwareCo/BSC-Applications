@@ -1,19 +1,20 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.System;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace BSC_Applications.src
 {
     public sealed partial class Settings
     {
-        private lib.AppSettings appSettings = new lib.AppSettings();
+        private static ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;
 
         public Settings()
         {
@@ -24,15 +25,27 @@ namespace BSC_Applications.src
 
         private void General_Loaded(object sender, RoutedEventArgs e)
         {
-            if (ElementSoundPlayer.State == ElementSoundPlayerState.On)
-                SoundToggle.IsOn = true;
+            SoundToggle.IsOn = Boolean.Parse(roamingSettings.Values["sound"].ToString());
+
+            if (roamingSettings.Values["backgroundColor"].ToString() == "default")
+            {
+                SolidColorBrush bgColor = Application.Current.Resources.ThemeDictionaries["ApplicationPageBackgroundThemeBrush"] as SolidColorBrush;
+                DefaultBackground.IsChecked = true;
+                BGColorpicker.Color = bgColor.Color;
+                BGColorVisual.Fill = new SolidColorBrush(BGColorpicker.Color);
+            }
             else
-                SoundToggle.IsOn = false;
+            {
+                string[] colors = roamingSettings.Values["backgroundColor"].ToString().Split(" , ");
+                byte r = byte.Parse(colors[0]);
+                byte g = byte.Parse(colors[1]);
+                byte b = byte.Parse(colors[2]);
+                byte a = byte.Parse(colors[3]);
+                BGColorpicker.Color = Color.FromArgb(a, r, g, b);
+                BGColorVisual.Fill = new SolidColorBrush(BGColorpicker.Color);
+            }
 
-            Theme.SelectedIndex = appSettings.Theme;
-
-            TemporaryContent.IsOn = appSettings.TemporaryContent;
-            ClearTemporaryContent.IsEnabled = appSettings.TemporaryContent;
+            TemporaryContent.IsOn = Boolean.Parse(roamingSettings.Values["temporaryContent"].ToString());
         }
         private void About_Loaded(object sender, RoutedEventArgs e)
         {
@@ -40,100 +53,64 @@ namespace BSC_Applications.src
             AppVersion.Text = lib.Data.Version;
             AppType.Text = lib.Data.Type;
             CopyAppInfo.Content = "Copy";
-
-            AutoUpdates.IsOn = appSettings.CheckForUpdates;
-
-            Status.Visibility = Visibility.Collapsed;
-            Update.Visibility = Visibility.Collapsed;
         }
         private void User_Loaded(object sender, RoutedEventArgs e)
         {
-            Name.Text = appSettings.DisplayName;
+            Name.Text = roamingSettings.Values["displayName"].ToString();
         }
 
         // General
         private void Sound_Toggled(object sender, RoutedEventArgs e)
         {
-            appSettings.Sound = SoundToggle.IsOn;
-            ElementSoundPlayer.State = appSettings.Sound ? ElementSoundPlayerState.On : ElementSoundPlayerState.Off;
+            roamingSettings.Values["sound"] = SoundToggle.IsOn;
+            ElementSoundPlayer.State = Boolean.Parse(roamingSettings.Values["sound"].ToString()) ? ElementSoundPlayerState.On 
+                                                                                                 : ElementSoundPlayerState.Off;
         }
-        private void Theme_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            appSettings.Theme = Theme.SelectedIndex;
 
-            switch (Theme.SelectedIndex)
-            {
-                case 0: Navigation.nav.RequestedTheme = ElementTheme.Light; break;
-                case 1: Navigation.nav.RequestedTheme = ElementTheme.Dark; break;
-                case 2: Navigation.nav.RequestedTheme = ElementTheme.Default; break;
-            }
-        }
-        private async void ResetSettings_Click(object sender, RoutedEventArgs e)
+        private void BGColorpicker_ColorChanged(ColorPicker sender, ColorChangedEventArgs args)
         {
-            ContentDialog dialog = new ContentDialog
+            BGColorVisual.Fill = new SolidColorBrush(BGColorpicker.Color);
+            roamingSettings.Values["backgroundColor"] = $"{BGColorpicker.Color.R} , {BGColorpicker.Color.G} , {BGColorpicker.Color.B} , {BGColorpicker.Color.A}";
+        }
+
+        private void DefaultBackground_Checked(object sender, RoutedEventArgs e)
+        {
+            roamingSettings.Values["backgroundColor"] = "default";
+            BGColor.IsEnabled = false;
+        }
+        private void DefaultBackground_Unchecked(object sender, RoutedEventArgs e)
+        {
+            BGColor.IsEnabled = true;
+        }
+
+        private void ResetSettings_Click(object sender, RoutedEventArgs e)
+        {
+            Button senderButton = (Button)sender;
+            if (senderButton.Name == "ResetFlyout_Rest")
             {
-                Title = "Are you sure you want to reset your settings?",
-                Content = "When you reset your settings BSC Applications will close.",
-                PrimaryButtonText = "Reset",
-                SecondaryButtonText = "Cancel"
-            };
-            if (await dialog.ShowAsync() == ContentDialogResult.Primary)
-            {
-                appSettings.New = true;
+                lib.AppSettings.Reset();
                 CoreApplication.Exit();
             }
+            ResetFlyout.Hide();
         }
-        private async void ImportSettings_Click(object sender, RoutedEventArgs e)
-        {
-            FileOpenPicker open = new FileOpenPicker();
-            open.SuggestedStartLocation = PickerLocationId.Desktop;
-            open.FileTypeFilter.Add(".json");
 
-            StorageFile file = await open.PickSingleFileAsync();
-            if (file != null)
-            {
-                string json = await FileIO.ReadTextAsync(file);
-                lib.AppSettings jsonAppSettings = JsonConvert.DeserializeObject<lib.AppSettings>(json);
-
-                appSettings.DisplayName = jsonAppSettings.DisplayName;
-                appSettings.TemporaryContent = jsonAppSettings.TemporaryContent;
-                appSettings.Sound = jsonAppSettings.Sound;
-                appSettings.Theme = jsonAppSettings.Theme;
-                appSettings.NavbarLocation = jsonAppSettings.NavbarLocation;
-                appSettings.BackgroundAcrylic = jsonAppSettings.BackgroundAcrylic;
-                appSettings.CheckForUpdates = jsonAppSettings.CheckForUpdates;
-                appSettings.New = jsonAppSettings.New;
-
-                ContentDialog dialog = new ContentDialog
-                {
-                    Title = "BSC Applications needs to restart to apply new Settings",
-                    Content = "BSC Applications will restart and apply your new settings.",
-                    PrimaryButtonText = "OK"
-                };
-                await dialog.ShowAsync();
-                CoreApplication.Exit();
-            }
-        }
         private void TemporaryContent_Toggled(object sender, RoutedEventArgs e)
         {
-            appSettings.TemporaryContent = TemporaryContent.IsOn;
-            ClearTemporaryContent.IsEnabled = appSettings.TemporaryContent;
+            roamingSettings.Values["temporaryContent"] = TemporaryContent.IsOn;
+            ClearTemporaryContent.IsEnabled = Boolean.Parse(roamingSettings.Values["sound"].ToString());
         }
-        private async void ClearTemporaryContent_Click(object sender, RoutedEventArgs e)
+
+        private void ClearTemporaryContent_Click(object sender, RoutedEventArgs e)
         {
-            ContentDialog dialog = new ContentDialog
-            {
-                Title = "Are you sure you want to Clear your Temporary Content?",
-                Content = "Clearing your Temporary Content will delete anything that is unsaved.",
-                PrimaryButtonText = "Clear",
-                SecondaryButtonText = "Cancel"
-            };
-            if (await dialog.ShowAsync() == ContentDialogResult.Primary)
+            Button senderButton = (Button)sender;
+            if (senderButton.Name == "ClearTempContentFlyout_Clear")
             {
                 lib.Var.notesContent = null;
                 lib.Var.todoContent = new List<string>();
             }
+            ClearTempContentFlyout.Hide();
         }
+
 
         // About
         private void CopyAppInfo_Click(object sender, RoutedEventArgs e)
@@ -143,60 +120,11 @@ namespace BSC_Applications.src
             Clipboard.SetContent(package);
             CopyAppInfo.Content = "Copied";
         }
-        private void AutoUpdates_Toggled(object sender, RoutedEventArgs e)
-        {
-            appSettings.CheckForUpdates = AutoUpdates.IsOn;
-        }
-        private void CheckForUpdates_Click(object sender, RoutedEventArgs e)
-        {
-            Update.Visibility = Visibility.Collapsed;
-            Status.Visibility = Visibility.Collapsed;
-
-            int result = lib.Package.Set();
-            if (result == 0)
-            {
-                if (lib.Data.iVersion < lib.Package.version)
-                {
-                    Update.Visibility = Visibility.Visible;
-
-                    Version.Text = lib.Package.sVersion;
-                    Publisher.Text = $"Publisher: {lib.Package.publisher}";
-                }
-                else
-                    Status.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                Status.Text = "Unable to check for updates.";
-                Status.Visibility = Visibility.Visible;
-            }
-        }
-        private async void Update_Click(object sender, RoutedEventArgs e)
-        {
-            FileSavePicker savePicker = new FileSavePicker();
-            savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-            savePicker.FileTypeChoices.Add("JSON", new List<string>() { ".json" });
-            savePicker.SuggestedFileName = "BSC Applications Settings";
-
-            StorageFile file = await savePicker.PickSaveFileAsync();
-            if (file != null)
-            {
-                string json = JsonConvert.SerializeObject(lib.AppSettings.All);
-                CachedFileManager.DeferUpdates(file);
-                await FileIO.WriteTextAsync(file, json);
-                await CachedFileManager.CompleteUpdatesAsync(file);
-            }
-
-            await Launcher.LaunchUriAsync(new Uri("https://bitsoftwareco.github.io/docs/BSC-Applications.html#update"));
-            await Launcher.LaunchUriAsync(new Uri($"https://github.com/BitSoftwareCo/BSC-Applications/releases/download/{Version.Text}/BSC.Applications.zip"));
-
-            CoreApplication.Exit();
-        }
 
         // User
         private void Name_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
-            appSettings.DisplayName = Name.Text;
+            roamingSettings.Values["displayName"] = Name.Text;
         }
 
         // Resources & Feedback
@@ -204,7 +132,7 @@ namespace BSC_Applications.src
         {
             FileSavePicker savePicker = new FileSavePicker();
             savePicker.SuggestedStartLocation = PickerLocationId.Desktop;
-            savePicker.FileTypeChoices.Add("LOG File", new List<string>() { ".log" });
+            savePicker.FileTypeChoices.Add("Excel Document", new List<string>() { ".csv" });
             savePicker.SuggestedFileName = "BSC Applications Event Log";
 
             StorageFile file = await savePicker.PickSaveFileAsync();

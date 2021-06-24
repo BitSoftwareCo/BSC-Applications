@@ -10,20 +10,17 @@ namespace BSC_Applications.src.app
 
     public sealed partial class Todo
     {
-        private lib.AppSettings appSettings = new lib.AppSettings();
+        private static ApplicationDataContainer roamingSettings = ApplicationData.Current.RoamingSettings;
         private bool temp;
 
-        private string startMessage = "Enter a Task and click \"New\" to add a Task.";
         private int selectedIndex = -1;
         private List<string> todoList = new List<string>();
 
         public Todo()
         {
-            temp = appSettings.TemporaryContent;
+            temp = Boolean.Parse(roamingSettings.Values["temporaryContent"].ToString());
 
             this.InitializeComponent();
-
-            Message.Text = startMessage;
 
             todoList = lib.Var.todoContent;
             if (todoList.Count != 0 && temp)
@@ -34,11 +31,11 @@ namespace BSC_Applications.src.app
                     item.Content = lib.Var.todoContent[i];
                     List.Items.Add(item);
                 }
-                Message.Text = "";
+                Message.Visibility = Visibility.Collapsed;
                 Remove.IsEnabled = true;
             }
 
-            Navigation.nav.ItemInvoked += Nav_ItemInvoked;
+            MainPage.nav.ItemInvoked += Nav_ItemInvoked;
 
             new lib.Events("Todo Loaded", 0);
         }
@@ -52,10 +49,6 @@ namespace BSC_Applications.src.app
         {
             if (e.Key == Windows.System.VirtualKey.Enter) add();
         }
-        private void Add_Click(object sender, RoutedEventArgs e)
-        {
-            add();
-        }
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
             if (selectedIndex != -1)
@@ -64,7 +57,7 @@ namespace BSC_Applications.src.app
 
                 if (List.Items.Count == 0)
                 {
-                    Message.Text = startMessage;
+                    Message.Visibility = Visibility.Visible;
                     Remove.IsEnabled = false;
                 }
             }
@@ -101,7 +94,7 @@ namespace BSC_Applications.src.app
             StorageFile file = await open.PickSingleFileAsync();
             if (file != null)
             {
-                Message.Text = "";
+                Message.Visibility = Visibility.Collapsed;
 
                 List.Items.Clear();
 
@@ -118,23 +111,18 @@ namespace BSC_Applications.src.app
                 else Remove.IsEnabled = true;
             }
         }
-        private async void New_Click(object sender, RoutedEventArgs e)
+        private void New_Click(object sender, RoutedEventArgs e)
         {
-            ContentDialog dialog = new ContentDialog
+            Button senderButton = (Button)sender;
+            if (senderButton.Name == "NewFlyout_New") 
             {
-                Title = "Are you sure you want to create a new Todo List?",
-                Content = "Creating a new Todo List will delete any unsaved tasks.",
-                PrimaryButtonText = "New",
-                SecondaryButtonText = "Cancel"
-            };
-            if (await dialog.ShowAsync() == ContentDialogResult.Primary)
-            {
-                Message.Text = startMessage;
+                Message.Visibility = Visibility.Visible;
                 Remove.IsEnabled = false;
 
                 List.Items.Clear();
                 todoList.Clear();
             }
+            NewFlyout.Hide();
         }
 
         private void add()
@@ -142,7 +130,7 @@ namespace BSC_Applications.src.app
             Remove.IsEnabled = true;
             if (Task.Text != "")
             {
-                Message.Text = "";
+                Message.Visibility = Visibility.Collapsed;
                 CheckBox item = new CheckBox();
                 item.Content = Task.Text;
 

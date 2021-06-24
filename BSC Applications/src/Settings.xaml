@@ -17,30 +17,66 @@
                         <TextBlock>Make BSC Applications your own.</TextBlock>
                     </StackPanel>
 
-                    <ToggleSwitch x:Name="SoundToggle" Header="Sound" Toggled="Sound_Toggled" Margin="0 0 0 25" />
-
-                    <ComboBox x:Name="Theme" SelectionChanged="Theme_SelectionChanged" Header="Theme" Margin="0 0 0 25">
-                        <ComboBoxItem>Light</ComboBoxItem>
-                        <ComboBoxItem>Dark</ComboBoxItem>
-                        <ComboBoxItem>Default</ComboBoxItem>
-                    </ComboBox>
+                    <StackPanel Orientation="Vertical">
+                        <ToggleSwitch x:Name="SoundToggle" Header="Sound" Toggled="Sound_Toggled" Margin="0 0 0 25" />
+                        
+                        <TextBlock FontStyle="Italic" Margin="0 0 0 10">New tint color will apply on next launch.</TextBlock>
+                        <Button x:Name="BGColor">
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <TextBlock>Background tint</TextBlock>
+                                <Rectangle x:Name="BGColorVisual" Fill="White" Width="20" />
+                            </StackPanel>
+                            <Button.Flyout>
+                                <Flyout>
+                                    <ColorPicker x:Name="BGColorpicker" ColorChanged="BGColorpicker_ColorChanged" />
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+                        <CheckBox x:Name="DefaultBackground" Checked="DefaultBackground_Checked" Unchecked="DefaultBackground_Unchecked">Use default background</CheckBox>
+                    </StackPanel>
 
                     <StackPanel Orientation="Vertical">
                         <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 40 0 0">Settings</TextBlock>
-                        <TextBlock>Reset or Import settings.</TextBlock>
+                        <TextBlock>Reset settings.</TextBlock>
                     </StackPanel>
 
-                    <Button x:Name="ResetSettings" Click="ResetSettings_Click" Width="116">Reset Settings</Button>
-                    <Button x:Name="ImportSettings" Click="ImportSettings_Click">Import Settings</Button>
+                    <Button x:Name="ResetSettings" Width="116">
+                        Reset settings
+                        <Button.Flyout>
+                            <Flyout x:Name="ResetFlyout">
+                                <StackPanel Spacing="20">
+                                    <TextBlock>BSC Applications will wipe all of your settings and close.</TextBlock>
+                                    <StackPanel Orientation="Horizontal" Spacing="10">
+                                        <Button x:Name="ResetFlyout_Rest" Click="ResetSettings_Click">Reset and close</Button>
+                                        <Button x:Name="ResetFlyout_Cancel" Click="ResetSettings_Click">Cancel</Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
 
                     <StackPanel Orientation="Vertical">
                         <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 40 0 0">Temporary Content</TextBlock>
-                        <TextBlock>Disable or Clear Temporary Content</TextBlock>
+                        <TextBlock>Disable or clear temporary content.</TextBlock>
                     </StackPanel>
 
                     <ToggleSwitch x:Name="TemporaryContent" Header="Temporary Content" Toggled="TemporaryContent_Toggled" Margin="0 0 0 25" />
 
-                    <Button x:Name="ClearTemporaryContent" Click="ClearTemporaryContent_Click">Clear Temporary Content</Button>
+                    <Button x:Name="ClearTemporaryContent" Click="ClearTemporaryContent_Click"
+                            IsEnabled="{x:Bind (x:Boolean)TemporaryContent.IsOn, Mode=OneWay}">
+                        Clear temporary content
+                        <Button.Flyout>
+                            <Flyout x:Name="ClearTempContentFlyout">
+                                <StackPanel Spacing="20">
+                                    <TextBlock>Clearing your Temporary Content will delete anything that is unsaved.</TextBlock>
+                                    <StackPanel Orientation="Horizontal" Spacing="10">
+                                        <Button x:Name="ClearTempContentFlyout_Clear" Click="ClearTemporaryContent_Click">Clear Temporary Content</Button>
+                                        <Button x:Name="ClearTempContentFlyout_Cancel" Click="ClearTemporaryContent_Click">Cancel</Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Flyout>
+                        </Button.Flyout>
+                    </Button>
                 </StackPanel>
             </ScrollViewer>
         </PivotItem>
@@ -64,27 +100,6 @@
                         </StackPanel>
                     </StackPanel>
                     <Button x:Name="CopyAppInfo" Click="CopyAppInfo_Click">Copy</Button>
-
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 40 0 0">Updates</TextBlock>
-                        <TextBlock>Check &amp; Disable Auto Updates</TextBlock>
-                    </StackPanel>
-
-                    <ToggleSwitch x:Name="AutoUpdates" Header="Auto Updates" Toggled="AutoUpdates_Toggled" Margin="0 0 0 25" />
-
-                    <Button x:Name="CheckForUpdates" Click="CheckForUpdates_Click">Check For Updates</Button>
-
-                    <TextBlock x:Name="Status">BSC Applications is up-to-date!</TextBlock>
-                    <Button x:Name="Update" Background="Transparent" Height="92" Width="221" Click="Update_Click">
-                        <StackPanel Orientation="Horizontal" Spacing="15">
-                            <SymbolIcon Symbol="ReShare" Margin="0 0 0 30" />
-                            <StackPanel>
-                                <TextBlock Style="{StaticResource TitleTextBlockStyle}" x:Name="Version">Placeholder</TextBlock>
-                                <TextBlock x:Name="Publisher">Placeholder</TextBlock>
-                                <TextBlock Style="{StaticResource CaptionTextBlockStyle}" FontStyle="Italic">Click here to Download</TextBlock>
-                            </StackPanel>
-                        </StackPanel>
-                    </Button>
                 </StackPanel>
             </ScrollViewer>
         </PivotItem>
@@ -94,10 +109,10 @@
                 <StackPanel Orientation="Vertical" Spacing="20">
                     <StackPanel Orientation="Vertical">
                         <TextBlock Style="{StaticResource TitleTextBlockStyle}">Display Info</TextBlock>
-                        <TextBlock>Change your Display Name &amp; Birthday</TextBlock>
+                        <TextBlock>Change your display name.</TextBlock>
                     </StackPanel>
 
-                    <TextBox x:Name="Name" Header="Display Name" Width="296" HorizontalAlignment="Left" KeyDown="Name_KeyDown" />
+                    <TextBox x:Name="Name" Header="Display name" Width="240" HorizontalAlignment="Left" KeyDown="Name_KeyDown" />
                 </StackPanel>
             </ScrollViewer>
         </PivotItem>
@@ -111,20 +126,19 @@
                         <HyperlinkButton NavigateUri="https://bitsoftwareco.github.io/docs/BSC-Applications.html#update">Update</HyperlinkButton>
                         <HyperlinkButton NavigateUri="https://bitsoftwareco.github.io/docs/BSC-Applications.html">Docs</HyperlinkButton>
                         <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications/blob/main/contribute.md#contribute-to-bsc-applications">Contribute</HyperlinkButton>
-                        <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications">View Code</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications">View code</HyperlinkButton>
                     </StackPanel>
 
                     <StackPanel Orientation="Vertical">
                         <TextBlock Style="{StaticResource TitleTextBlockStyle}" Margin="0 40 0 0">Feedback</TextBlock>
-                        <TextBlock>Report Bugs &amp; Submit Feature Requests</TextBlock>
+                        <TextBlock>Report bugs &amp; submit feature requests.</TextBlock>
                     </StackPanel>
 
                     <StackPanel Orientation="Vertical">
-                        <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications/issues/new?assignees=BitSoftwareCo&amp;labels=bug&amp;template=bug_report.md&amp;title=Bug+-+%5BVery+short+description%5D">Bug Report Via Github</HyperlinkButton>
-                        <HyperlinkButton NavigateUri="mailto:jaredgholderrallo@gmail.com">Email US</HyperlinkButton>
+                        <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications/issues/new?assignees=BitSoftwareCo&amp;labels=bug&amp;template=bug_report.md&amp;title=Bug+-+%5BVery+short+description%5D">Bug report</HyperlinkButton>
                     </StackPanel>
 
-                    <Button x:Name="SaveEventLog" Click="SaveEventLog_Click">Event Log</Button>
+                    <Button x:Name="SaveEventLog" Click="SaveEventLog_Click">Event log</Button>
                 </StackPanel>
             </ScrollViewer>
         </PivotItem>
