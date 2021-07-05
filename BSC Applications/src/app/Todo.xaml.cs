@@ -37,7 +37,7 @@ namespace BSC_Applications.src.app
 
             MainPage.nav.ItemInvoked += Nav_ItemInvoked;
 
-            new lib.Events("Todo Loaded", 0);
+            new lib.Event("Todo loaded", lib.Event.load);
         }
 
         private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -106,6 +106,7 @@ namespace BSC_Applications.src.app
 
                 if (List.Items.Count == 0)
                 {
+                    Message.Visibility = Visibility.Visible;
                     Remove.IsEnabled = false;
                 }
                 else Remove.IsEnabled = true;
@@ -190,7 +191,7 @@ namespace BSC_Applications.src.app
             }
         }
 
-        private void Nav_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        private void Nav_ItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
         {
             if (temp)
                 lib.Var.todoContent = todoList;

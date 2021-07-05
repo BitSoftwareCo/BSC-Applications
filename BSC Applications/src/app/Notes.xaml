@@ -14,6 +14,18 @@
         </Grid.RowDefinitions>
 
         <CommandBar Background="Transparent" Grid.Row="0">
+            <AppBarButton x:Name="Color" Icon="FontColor" Label="Font color">
+                <AppBarButton.Flyout>
+                    <Flyout x:Name="ColorFlyout">
+                        <StackPanel Orientation="Vertical" Spacing="20">
+                            <ColorPicker x:Name="ColorFlyout_Picker"
+                                         IsMoreButtonVisible="False" IsColorSliderVisible="True" IsHexInputVisible="False" IsAlphaEnabled="False" IsColorChannelTextInputVisible="False" />
+                            <Button x:Name="ColorPickerFlyout_Pick" Click="ColorPickerFlyout_Pick_Click">Apply</Button>
+                        </StackPanel>
+                    </Flyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            <AppBarSeparator />
             <AppBarButton x:Name="New" Icon="Add" Label="New">
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator

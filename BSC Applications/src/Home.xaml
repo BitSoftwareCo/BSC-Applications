@@ -10,11 +10,20 @@
     <StackPanel Orientation="Vertical" Spacing="20">
         <Grid Width="786" HorizontalAlignment="Center">
             <StackPanel Orientation="Vertical" Padding="15 15 15 15">
-                <TextBlock x:Name="Welcome" FontWeight="Bold" Foreground="{ThemeResource SystemAccentColorDark2}" >Welcome</TextBlock>
-                <TextBlock x:Name="Name" Style="{StaticResource TitleTextBlockStyle}">Placeholder</TextBlock>
+                <TextBlock x:Name="Welcome" FontWeight="Bold" Foreground="{ThemeResource SystemAccentColor}" TextWrapping="Wrap">Welcome</TextBlock>
+                <TextBlock x:Name="Name" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="Wrap">Placeholder</TextBlock>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <HyperlinkButton NavigateUri="https://bitsoftwareco.github.io/docs/BSC-Applications.html" ToolTipService.ToolTip="Docs">
+                    <SymbolIcon Symbol="Help" />
+                </HyperlinkButton>
+                <HyperlinkButton NavigateUri="https://github.com/BitSoftwareCo/BSC-Applications/issues" ToolTipService.ToolTip="Feedback">
+                    <SymbolIcon Symbol="Comment" />
+                </HyperlinkButton>
             </StackPanel>
         </Grid>
-        
+
         <Grid HorizontalAlignment="Center" ColumnSpacing="15" RowSpacing="15">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -26,54 +35,54 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Button x:Name="Notes" Background="Transparent" Click="AppButton_Click" Width="252" Height="104">
+            <Button x:Name="Media_View" Click="AppButton_Click" Width="252" Height="104">
                 <StackPanel Orientation="Horizontal" Spacing="15">
-                    <SymbolIcon Symbol="Document" Margin="0 0 0 30" Foreground="{ThemeResource SystemAccentColorDark2}" />
+                    <SymbolIcon Symbol="ViewAll" Margin="0 0 0 30" Foreground="{ThemeResource SystemAccentColor}" />
 
                     <StackPanel Spacing="10">
-                        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Foreground="{ThemeResource SystemAccentColorDark2}">Notes</TextBlock>
-                        <TextBlock>Edit and Create Stunning Notes</TextBlock>
+                        <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Foreground="{ThemeResource SystemAccentColor}">Media View</TextBlock>
+                        <TextBlock>View all of your favorite events.</TextBlock>
                     </StackPanel>
                 </StackPanel>
             </Button>
-            <Button x:Name="Photo_View" Background="Transparent" Click="AppButton_Click" Width="252" Height="104" Grid.Column="1">
+            <Button x:Name="Notes" Click="AppButton_Click" Width="252" Height="104" Grid.Column="1">
                 <StackPanel Orientation="Horizontal" Spacing="15">
-                    <SymbolIcon Symbol="BrowsePhotos" Margin="0 0 0 30" Foreground="{ThemeResource SystemAccentColorDark2}" />
+                    <SymbolIcon Symbol="Document" Margin="0 0 0 30" Foreground="{ThemeResource SystemAccentColor}" />
 
                     <StackPanel Spacing="10">
-                        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Foreground="{ThemeResource SystemAccentColorDark2}" >Photo View</TextBlock>
-                        <TextBlock>View all of your Favorite Photos</TextBlock>
+                        <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Foreground="{ThemeResource SystemAccentColor}">Notes</TextBlock>
+                        <TextBlock>Edit and create stunning notes.</TextBlock>
                     </StackPanel>
                 </StackPanel>
             </Button>
-            <Button x:Name="Stopwatch" Background="Transparent" Click="AppButton_Click" Width="252" Height="104" Grid.Column="2">
+            <Button x:Name="Stopwatch" Click="AppButton_Click" Width="252" Height="104" Grid.Column="2">
                 <StackPanel Orientation="Horizontal" Spacing="15" Margin="-45 0 0 0">
-                    <SymbolIcon Symbol="Clock" Margin="0 0 0 30" Foreground="{ThemeResource SystemAccentColorDark2}" />
+                    <SymbolIcon Symbol="Clock" Margin="0 0 0 30" Foreground="{ThemeResource SystemAccentColor}" />
 
                     <StackPanel Spacing="10">
-                        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Foreground="{ThemeResource SystemAccentColorDark2}" >Stopwatch</TextBlock>
-                        <TextBlock>Count the elapsed time</TextBlock>
+                        <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Foreground="{ThemeResource SystemAccentColor}" >Stopwatch</TextBlock>
+                        <TextBlock>Count the elapsed time.</TextBlock>
                     </StackPanel>
                 </StackPanel>
             </Button>
-            
-            <Button x:Name="Todo" Background="Transparent" Click="AppButton_Click" Width="252" Height="104" Padding="-25 0 0 0" Grid.Row="1">
+
+            <Button x:Name="Todo" Click="AppButton_Click" Width="252" Height="104" Padding="-25 0 0 0" Grid.Row="1">
                 <StackPanel Orientation="Horizontal" Spacing="15">
-                    <SymbolIcon Symbol="Accept" Margin="0 0 0 30" Foreground="{ThemeResource SystemAccentColorDark2}" />
+                    <SymbolIcon Symbol="Bullets" Margin="0 0 0 30" Foreground="{ThemeResource SystemAccentColor}" />
 
                     <StackPanel Spacing="10">
-                        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Foreground="{ThemeResource SystemAccentColorDark2}" >Todo</TextBlock>
-                        <TextBlock>Create and Save Todo Lists</TextBlock>
+                        <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Foreground="{ThemeResource SystemAccentColor}" >Todo</TextBlock>
+                        <TextBlock>Create and save todo lists.</TextBlock>
                     </StackPanel>
                 </StackPanel>
             </Button>
-            <Button x:Name="Settings" Background="Transparent" Click="AppButton_Click" Width="252" Height="104" Padding="-25 0 0 0" Grid.Row="1" Grid.Column="1">
+            <Button x:Name="Settings" Click="AppButton_Click" Width="252" Height="104" Padding="-25 0 0 0" Grid.Row="1" Grid.Column="1">
                 <StackPanel Orientation="Horizontal" Spacing="15">
-                    <SymbolIcon Symbol="Setting" Margin="10 0 0 30" Foreground="{ThemeResource SystemAccentColorDark2}" />
+                    <SymbolIcon Symbol="Setting" Margin="10 0 0 30" Foreground="{ThemeResource SystemAccentColor}" />
 
                     <StackPanel Spacing="10">
-                        <TextBlock Style="{StaticResource TitleTextBlockStyle}" Foreground="{ThemeResource SystemAccentColorDark2}" >Settings</TextBlock>
-                        <TextBlock>Make BSC Applications yours</TextBlock>
+                        <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Foreground="{ThemeResource SystemAccentColor}">Settings</TextBlock>
+                        <TextBlock>Make BSC Applications yours.</TextBlock>
                     </StackPanel>
                 </StackPanel>
             </Button>

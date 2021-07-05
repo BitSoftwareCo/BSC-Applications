@@ -12,7 +12,7 @@ namespace BSC_Applications.src.lib
         private static Windows.ApplicationModel.PackageId packageId = package.Id;
 
         // App Info
-        private static string name = package.DisplayName;
+        private static string name = package.DisplayName + " Frost";
         private static Windows.ApplicationModel.PackageVersion version = packageId.Version;
 
         public static string Name

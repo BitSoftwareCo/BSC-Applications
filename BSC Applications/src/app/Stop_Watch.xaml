@@ -12,19 +12,14 @@
             <TextBlock  x:Name="Time" Style="{ThemeResource HeaderTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center">
                 Placeholder
             </TextBlock>
-
-            <TextBlock Foreground="Gray" Style="{ThemeResource SubheaderTextBlockStyle}"
-                       HorizontalAlignment="Center" VerticalAlignment="Center">
-                hour / min / sec
-            </TextBlock>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Width="115" Spacing="15">
-            <Button x:Name="StartStop" Background="Transparent" Width="50" Height="50" HorizontalAlignment="Center" Click="StartStop_Click">
+            <Button x:Name="StartStop" Width="50" Height="50" HorizontalAlignment="Center" Click="StartStop_Click">
                 <SymbolIcon x:Name="StartStopIcon" Symbol="Play" />
             </Button>
             
-            <Button x:Name="Reset" Background="Transparent" Width="50" Height="50" HorizontalAlignment="Center" Click="Reset_Click">
+            <Button x:Name="Reset"  Width="50" Height="50" HorizontalAlignment="Center" Click="Reset_Click">
                 <SymbolIcon Symbol="Refresh" />
             </Button>
         </StackPanel>

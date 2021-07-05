@@ -5,10 +5,7 @@
     xmlns:local="using:BSC_Applications">
 
     <Application.Resources>
-        <ResourceDictionary>
-            <Style TargetType="Button" BasedOn="{StaticResource ButtonRevealStyle}" />
-            <Style TargetType="HyperlinkButton" BasedOn="{StaticResource TextBlockButtonStyle}" />
-        </ResourceDictionary>
+        <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
     </Application.Resources>
-    
+
 </Application>

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using Windows.Storage;
 using Windows.Storage.Pickers;
-using Windows.UI;
 using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
+
+using muxc = Microsoft.UI.Xaml.Controls;
 
 namespace BSC_Applications.src.app
 {
@@ -27,9 +27,16 @@ namespace BSC_Applications.src.app
 
             MainPage.nav.ItemInvoked += Nav_ItemInvoked;
 
-            new lib.Events("Notes Loaded", 0);
+            new lib.Event("Notes loaded", lib.Event.load);
         }
 
+        private void ColorPickerFlyout_Pick_Click(object sender, RoutedEventArgs e)
+        {
+            Text.Document.Selection.CharacterFormat.ForegroundColor = ColorFlyout_Picker.Color;
+
+            ColorFlyout.Hide();
+            Text.Focus(FocusState.Keyboard);
+        }
         private void New_Click(object sender, RoutedEventArgs e)
         {
             Button senderButton = (Button)sender;
@@ -74,16 +81,11 @@ namespace BSC_Applications.src.app
 
         private async void SaveRTF(StorageFile file)
         {
-            Text.Foreground = new SolidColorBrush(Colors.Black);
-
             CachedFileManager.DeferUpdates(file);
             Windows.Storage.Streams.IRandomAccessStream randAccStream = await file.OpenAsync(FileAccessMode.ReadWrite);
             Text.Document.SaveToStream(TextGetOptions.FormatRtf, randAccStream);
 
             await CachedFileManager.CompleteUpdatesAsync(file);
-
-            if (Application.Current.RequestedTheme == ApplicationTheme.Dark)
-                Text.Foreground = new SolidColorBrush(Colors.White);
         }
         private async void SaveTXT(StorageFile file)
         {
@@ -105,7 +107,7 @@ namespace BSC_Applications.src.app
             Text.Document.LoadFromStream(TextSetOptions.None, randAccStream);
         }
 
-        private void Nav_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        private void Nav_ItemInvoked(muxc.NavigationView sender, muxc.NavigationViewItemInvokedEventArgs args)
         {
             if (temp)
                 Text.Document.GetText(TextGetOptions.FormatRtf, out lib.Var.notesContent);

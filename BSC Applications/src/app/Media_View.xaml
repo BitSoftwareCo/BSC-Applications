@@ -1,0 +1,31 @@
+﻿<Page
+    x:Class="BSC_Applications.src.app.Media_View"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BSC_Applications.src.app"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <CommandBar Grid.Row="0" x:Name="Command">
+            <AppBarButton x:Name="Share" Icon="Share" Label="Share" Click="Share_Click" />
+        </CommandBar>
+
+        <Grid Grid.Row="1">
+            <StackPanel x:Name="Message" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Visibility="Collapsed" >
+                <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE8F1;" FontSize="50" Margin="0 0 0 25" />
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"
+                           MaxWidth="150" TextWrapping="WrapWholeWords">There're is no media in your picture libary.</TextBlock>
+            </StackPanel>
+
+            <FlipView x:Name="View" Background="Transparent" />
+        </Grid>
+    </Grid>
+</Page>

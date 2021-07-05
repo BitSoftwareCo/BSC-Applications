@@ -17,15 +17,15 @@ namespace BSC_Applications.src.app
         {
             this.InitializeComponent();
 
-            Time.Text = "0:0:0";
+            Time.Text = "h:m:s";
 
             DataContext = this;
             Timer.Tick += Timer_Tick;
             Timer.Interval = TimeSpan.FromSeconds(1);
 
-            MainPage.nav.ItemInvoked += Nav_ItemInvoked;
+             MainPage.nav.ItemInvoked += Nav_ItemInvoked;
 
-            new lib.Events("Stopwatch Loaded", 0);
+            new lib.Event("Stopwatch loaded", lib.Event.load);
         }
 
         private void StartStop_Click(object sender, RoutedEventArgs e)
@@ -46,7 +46,7 @@ namespace BSC_Applications.src.app
             sec = 0;
             min = 0;
             hou = 0;
-            Time.Text = $"0:0:0";
+            Time.Text = "h:m:s";
 
             Timer.Stop();
             StartStopIcon.Symbol = Symbol.Play;
@@ -65,7 +65,7 @@ namespace BSC_Applications.src.app
             Time.Text = $"{hou}:{min}:{sec}";
         }
 
-        private void Nav_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        private void Nav_ItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
         {
             Timer.Stop();
         }

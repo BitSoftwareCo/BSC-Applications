@@ -4,27 +4,41 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:BSC_Applications"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:muxc="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    mc:Ignorable="d">
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
 
     <Grid>
-        <muxc:Grid.RowDefinitions>
-            <muxc:RowDefinition Height="0*"/>
-            <muxc:RowDefinition/>
-        </muxc:Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <NavigationView x:Name="Nav" ItemInvoked="Nav_ItemInvoked" IsBackButtonVisible="Collapsed" IsPaneOpen="False"
-                        Header="Home" muxc:Grid.RowSpan="2">
-            <NavigationView.MenuItems>
-                <NavigationViewItem Icon="Home" Content="Home" />
-                <NavigationViewItemSeparator />
-                <NavigationViewItem Icon="Document" Content="Notes" />
-                <NavigationViewItem Icon="BrowsePhotos" Content="Photo View" />
-                <NavigationViewItem Icon="Clock" Content="Stopwatch" />
-                <NavigationViewItem Icon="Accept" Content="Todo" />
-            </NavigationView.MenuItems>
+        <Grid x:Name="AppTitleBar" Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="LeftPaddingColumn" Width="0"/>
+                <ColumnDefinition/>
+                <ColumnDefinition x:Name="RightPaddingColumn" Width="0"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="BSC Applications" 
+               Grid.Column="1" 
+               Style="{StaticResource CaptionTextBlockStyle}" 
+               Margin="12, 8, 0, 0"/>
+        </Grid>
 
-            <Frame x:Name="Content" Margin="12 0 12 24" />
-        </NavigationView>
+        <muxc:NavigationView x:Name="Nav" ItemInvoked="Nav_ItemInvoked" IsPaneOpen="False"
+                             Header="Home" Grid.Row="1" IsBackButtonVisible="Auto">
+            <muxc:NavigationView.MenuItems>
+                <muxc:NavigationViewItem Icon="Home" Content="Home" IsSelected="True" />
+                <muxc:NavigationViewItemSeparator />
+                <muxc:NavigationViewItem Icon="ViewAll" Content="Media View" />
+                <muxc:NavigationViewItem Icon="Document" Content="Notes" />
+                <muxc:NavigationViewItem Icon="Clock" Content="Stopwatch" />
+                <muxc:NavigationViewItem Icon="Bullets" Content="Todo" />
+            </muxc:NavigationView.MenuItems>
+            
+            <Frame x:Name="Content" Margin="40, 0, 40, 36"/>
+        </muxc:NavigationView>
     </Grid>
 </Page>

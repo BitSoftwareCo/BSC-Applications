@@ -15,17 +15,9 @@ namespace BSC_Applications.src.lib
         {
             if (!roamingSettings.Values.ContainsKey("new"))
             {
-                new Events("Loaded App Settings", 0);
+                new Event("Loaded App Settings", 0);
 
-                roamingSettings.Values["displayName"] = WindowsIdentity.GetCurrent().Name.Split("\\")[1];
-                roamingSettings.Values["temporaryContent"] = true;
-
-                roamingSettings.Values["sound"] = false;
-                roamingSettings.Values["navbarLocation"] = false;      // false - left          | true  - top     | ----------- |
-                roamingSettings.Values["backgroundAcrylic"] = false;   // false - No Acrylic    | true  - Acrylic | ----------- |
-                roamingSettings.Values["backgroundColor"] = "default"; // default - Theme Color | --------------- | ----------- |
-
-                roamingSettings.Values["new"] = true;
+                Reset();
             }
         }
 
@@ -34,10 +26,7 @@ namespace BSC_Applications.src.lib
             roamingSettings.Values["displayName"] = WindowsIdentity.GetCurrent().Name.Split("\\")[1];
             roamingSettings.Values["temporaryContent"] = true;
 
-            roamingSettings.Values["sound"] = false;
-            roamingSettings.Values["navbarLocation"] = false;      // false - left          | true  - top     | ----------- |
-            roamingSettings.Values["backgroundAcrylic"] = false;   // false - No Acrylic    | true  - Acrylic | ----------- |
-            roamingSettings.Values["backgroundColor"] = "default"; // default - Theme Color | --------------- | ----------- |
+            roamingSettings.Values["sound"] = true;
 
             roamingSettings.Values["new"] = true;
         }

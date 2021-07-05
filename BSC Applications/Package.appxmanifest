@@ -13,7 +13,7 @@
   <Identity
     Name="3406ec64-fd29-4985-8b83-ff38194de670"
     Publisher="CN=jghr"
-    Version="1.2.1.0" />
+    Version="1.3.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="3406ec64-fd29-4985-8b83-ff38194de670" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
@@ -41,7 +41,8 @@
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="Native. Private. And Open."
         BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
+        </uap:DefaultTile >
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
         <uap:InitialRotationPreference>
           <uap:Rotation Preference="landscape"/>
@@ -51,9 +52,6 @@
   </Applications>
 
   <Capabilities>
-    <Capability Name="internetClient" />
     <uap:Capability Name="picturesLibrary"/>
-    <uap:Capability Name="videosLibrary"/>
-    <DeviceCapability Name="webcam"/>
   </Capabilities>
 </Package>

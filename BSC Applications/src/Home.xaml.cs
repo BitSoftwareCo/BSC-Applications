@@ -15,7 +15,7 @@ namespace BSC_Applications.src
 
             Name.Text = roamingSettings.Values["displayName"] as string;
 
-            new lib.Events("Home Loaded", 0);
+            new lib.Event("Home loaded", lib.Event.load);
         }
 
         private void AppButton_Click(object sender, RoutedEventArgs e)
@@ -27,12 +27,12 @@ namespace BSC_Applications.src
 
             switch (buttonName)
             {
-                case "Notes":
-                    MainPage.frame.Navigate(typeof(app.Notes), null, new DrillInNavigationTransitionInfo());
+                case "Media View":
+                    MainPage.frame.Navigate(typeof(app.Media_View), null, new DrillInNavigationTransitionInfo());
                     MainPage.nav.SelectedItem = MainPage.nav.MenuItems[2];
                     break;
-                case "Photo View":
-                    MainPage.frame.Navigate(typeof(app.Photo_View), null, new DrillInNavigationTransitionInfo());
+                case "Notes":
+                    MainPage.frame.Navigate(typeof(app.Notes), null, new DrillInNavigationTransitionInfo());
                     MainPage.nav.SelectedItem = MainPage.nav.MenuItems[3];
                     break;
                 case "Stopwatch":
