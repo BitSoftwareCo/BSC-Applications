@@ -7,14 +7,18 @@ assignees: BitSoftwareCo
 
 ---
 
-**Description**
+## Description
 Describe what the bug does.
 
-**Reproduce**
+## Reproduce
 Steps to reproduce the behavior:
 
-**Expected behavior**
-What did you expect to happen?
+## App Info
+<!--
+Settings → About → Copy
+-->
 
-**Version**
- - Version [e.g. 1.0.0, Settings > About > Version]
+<!---
+We recommend that you attach the event log.
+Settings → Resources & Feedback → Event log
+-->
