@@ -22,11 +22,15 @@ Supported Versions: (**9** / 10)
 |Version|Supported Cycle|Type |Verion No. |Build No.|
 |-------|---------------|-----|-----------|---------|
 |1.3.0  |Fresh          |Beta |16         |```00G```|
-|1.2.1  |Fresh          |Build|15         |```00F```|
-|1.2.0  |Fresh          |Beta |14         |```00E```|
-|1.1.0  |Fresh          |Beta |13         |```00D```|
-|1.0.0  |Mild           |Major|12         |```00C```|
-|0.2.3  |Mild           |Build|11         |```00B```|
-|0.2.2  |Mild           |Build|10         |```00A```|
-|0.2.1  |Old            |Build|9          |```009```|
-|0.2.0  |Tainted        |Beta |8          |```008```|
+|1.2.1  |Unsupported    |Build|15         |```00F```|
+|1.2.0  |Unsupported    |Beta |14         |```00E```|
+|1.1.0  |Unsupported    |Beta |13         |```00D```|
+|1.0.0  |Unsupported    |Major|12         |```00C```|
+|0.2.3  |Unsupported    |Build|11         |```00B```|
+|0.2.2  |Unsupported    |Build|10         |```00A```|
+|0.2.1  |Unsupported    |Build|9          |```009```|
+|0.2.0  |Unsupported    |Beta |8          |```008```|
+|0.1.1  |Unsupported    |-----|-----------|---------|
+|0.1.0  |Unsupported    |-----|-----------|---------|
+|0.0.2  |Unsupported    |-----|-----------|---------|
+|0.0.1  |Unsupported    |-----|-----------|---------|
